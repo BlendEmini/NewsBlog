@@ -33,6 +33,7 @@ function HamburgerMenu({ darkMode, setDarkMode }) {
                             {/* logo */}
                             <div>
                                 <Image
+                                    alt="logo"
                                     width={220}
                                     height={85}
                                     src={darkMode ? LogoDark : LogoLight}
