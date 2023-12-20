@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Navbar from "./components/Navbar";
 import { BlogProvider } from "./context/BlogContext";
-import Homepage from "./homepage/page";
+import Homepage from "./components/Homepage";
 import { useState } from "react";
 import HamburgerMenu from "./components/HamburgerMenu";
 

@@ -1,7 +1,7 @@
 import React from "react";
-import Hero from "../components/Hero";
+import Hero from "./Hero";
 
-export default function Homepage({ darkMode }) {
+const Homepage = ({ darkMode }) => {
     return (
         <main
             className={`flex ${
@@ -11,4 +11,6 @@ export default function Homepage({ darkMode }) {
             <Hero />
         </main>
     );
-}
+};
+
+export default Homepage;
