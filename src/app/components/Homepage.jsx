@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "./Hero";
+import AllBlogs from "./AllBlogs";
 
 const Homepage = ({ darkMode }) => {
     return (
@@ -9,6 +10,7 @@ const Homepage = ({ darkMode }) => {
             } min-h-screen flex-col items-center justify-between`}
         >
             <Hero darkMode={darkMode} />
+            <AllBlogs />
         </main>
     );
 };
