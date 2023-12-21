@@ -16,7 +16,7 @@ const Hero = ({ darkMode }) => {
                     <img
                         src={e.image}
                         alt={`Image ${index}`}
-                        className="w-full"
+                        className="w-full border1px border-radius"
                     />
                     <div
                         className={`absolute box-border p-5 border1px border-radius gap-3 -bottom-40 w-350 lg:-bottom-10 left-10 flex md:w-478 md:h-243 ${
