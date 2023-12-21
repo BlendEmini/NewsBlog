@@ -33,3 +33,14 @@ export function BlogProvider({ children }) {
 }
 
 export default BlogContext;
+
+// import React from "react";
+// import Hero from "../components/Hero";
+// import { BlogProvider } from "../context/BlogContext";
+
+// export default function Homepage({ darkMode }) {
+//     return;
+//     <BlogProvider>
+//         <Hero />;
+//     </BlogProvider>;
+// }
