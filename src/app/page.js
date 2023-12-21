@@ -7,7 +7,7 @@ import { useState } from "react";
 import HamburgerMenu from "./components/HamburgerMenu";
 
 export default function Home() {
-    const [darkMode, setDarkMode] = useState(true);
+    const [darkMode, setDarkMode] = useState(false);
     return (
         <div>
             <BlogProvider>
