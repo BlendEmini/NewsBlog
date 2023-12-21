@@ -1,0 +1,53 @@
+import React, { useContext } from "react";
+import BlogContext from "../context/BlogContext";
+
+const Hero = ({ darkMode }) => {
+    const { blog } = useContext(BlogContext);
+
+    if (!blog) {
+        return <div>Loading...</div>; // or handle the undefined case in another way
+    }
+    return (
+        <div className="relative box-border p-5">
+            <div className="relative">
+                {blog.map((e, index) => (
+                    <img
+                        key={index}
+                        src={e.image}
+                        alt={`Image ${index}`}
+                        className="w-full"
+                    />
+                ))}
+            </div>
+            <div
+                className={`absolute box-border p-5 border1px border-radius gap-3 -bottom-40 w-350 lg:-bottom-10 left-10 flex lg:w-478 lg:h-243 ${
+                    darkMode
+                        ? " bg-mainBgDark text-white "
+                        : "bg-white text-black"
+                } flex-col justify-between`}
+            >
+                <div className="w-28 h-7 bg-blueButton flex flex-col justify-items-center align-items-center box-border border-radius-btn ">
+                    <h6 className="">Technology</h6>
+                </div>
+                <div>
+                    <h2 className="lg:text-3xl text-xl ">
+                        The Impact of Technology on the Workplace: How
+                        Technology is Changing
+                    </h2>
+                </div>
+                <div className="flex align-items-center justify-between ">
+                    <h5 className="text-sm w-28 text-gray-400">
+                        Created At : August 20, 2023
+                    </h5>
+                    <div className="md:px-4 px-3 py-2 flex justify-center bg-blue-950 rounded-md">
+                        <h5 className="text-sm text-white font-bold">
+                            Latest News
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Hero;

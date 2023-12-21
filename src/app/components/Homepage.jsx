@@ -8,7 +8,7 @@ const Homepage = ({ darkMode }) => {
                 darkMode ? "bg-mainBgDark text-white" : "bg-white text-black"
             } min-h-screen flex-col items-center justify-between`}
         >
-            <Hero />
+            <Hero darkMode={darkMode} />
         </main>
     );
 };

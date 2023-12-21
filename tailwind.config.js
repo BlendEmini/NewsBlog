@@ -12,14 +12,24 @@ module.exports = {
                 "gradient-conic":
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
+
             colors: {
                 mainBgDark: "#181A2A",
                 logoColor: "#e8ccb2",
                 scLightBg: "#F4F4F5",
                 scLightText: "#3B3C4A",
+                blueButton: "#4B6BFB",
+                lightGrey: "##999999",
             },
             alignItems: {
                 center: "center",
+            },
+            width: {
+                478: "478px", // Custom width definition
+                350: "290px",
+            },
+            height: {
+                243: "243px",
             },
         },
     },
