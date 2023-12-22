@@ -3,6 +3,7 @@ import BlogBox from "./BlogBox";
 import BlogContext from "../context/BlogContext";
 import { useContext } from "react";
 import AdsMap from "./AdsMap";
+import Link from "next/link";
 const News = ({ darkMode }) => {
     const { blog } = useContext(BlogContext);
 
@@ -14,7 +15,9 @@ const News = ({ darkMode }) => {
                     index // Added index as key for each BlogBox
                 ) => (
                     <div key={index}>
-                        <BlogBox blog={box} darkMode={darkMode} />
+                        <Link href={`/blog/${box.id}`}>
+                            <BlogBox blog={box} darkMode={darkMode} />
+                        </Link>
                         <div className="md:hidden ">
                             <AdsMap />
                         </div>

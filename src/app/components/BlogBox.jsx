@@ -5,8 +5,10 @@ import Image from "next/image";
 const BlogBox = ({ darkMode, blog }) => {
     return (
         <div
-            className={`box-border p-3 ${
-                darkMode ? "border1pxBox" : "border1pxBoxDark"
+            className={`box-border shadow-md transition duration-300 group *:  p-3 ${
+                darkMode
+                    ? "border1pxBox hover:bg-darkHoverBG"
+                    : "hover:bg-lightHoverBG border1pxBoxDark"
             } gap-2 flex flex-col w-80`}
         >
             <div>
@@ -19,10 +21,24 @@ const BlogBox = ({ darkMode, blog }) => {
             </div>
 
             <div>
-                <h2 className="lg:text-xl text-lg font-bold">{blog.title}</h2>
+                <h2
+                    className={`lg:text-xl text-lg font-bold ${
+                        darkMode
+                            ? " hover:bg-darkHoverBG"
+                            : "hover:bg-lightHoverBG "
+                    } `}
+                >
+                    {blog.title}
+                </h2>
             </div>
             <div className="flex align-items-center justify-between">
-                <h5 className="text-sm w-28 text-gray-400">
+                <h5
+                    className={`text-sm w-28  font-semibold text-gray-400 ${
+                        darkMode
+                            ? " group-hover:text-white"
+                            : "group-hover:text-mainBgDark"
+                    } `}
+                >
                     Created At: {blog.created_at.slice(0, 10)}
                 </h5>
                 <div className="w-28 py-1  bg-blueButton flex flex-col justify-items-center align-items-center box-border border-radius-btn">

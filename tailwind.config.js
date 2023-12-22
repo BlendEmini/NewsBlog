@@ -21,6 +21,9 @@ module.exports = {
                 blueButton: "#4B6BFB",
                 lightGrey: "#999999",
                 lightBlueButton: "#4b6bfb73",
+                lightHoverBG: "#e5e5e59a",
+                darkHoverBG: "#3A3F58",
+                darkHoverText: "#9FA2B4",
             },
             alignItems: {
                 center: "center",
