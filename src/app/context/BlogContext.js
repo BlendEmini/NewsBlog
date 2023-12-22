@@ -18,7 +18,7 @@ export function BlogProvider({ children }) {
                     console.error("Error fetching blog posts:", error.message);
                     return;
                 }
-                setBlog(news); // Fix the variable name here to match the destructured variable
+                setBlog(news.reverse()); // Fix the variable name here to match the destructured variable
             } catch (error) {
                 console.error("Error fetching blog posts:", error.message);
             }

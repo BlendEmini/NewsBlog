@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import BlogContext from "../context/BlogContext";
 import Image from "next/image";
+import Ads from "./Ads";
+import AdsLong from "./AdsLong";
 
 const Hero = ({ darkMode }) => {
     const { blog } = useContext(BlogContext);
@@ -11,7 +13,7 @@ const Hero = ({ darkMode }) => {
             <div role="status">
                 <svg
                     aria-hidden="true"
-                    class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                    className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -25,26 +27,29 @@ const Hero = ({ darkMode }) => {
                         fill="currentFill"
                     />
                 </svg>
-                <span class="sr-only">Loading...</span>
+                <span className="sr-only">Loading...</span>
             </div>
         );
     }
 
     return (
         <div className="flex flex-col justify-center align-items-center gap-3">
-            <div className="w-80 h-32 border-radius flex align-items-center justify-center mt-5 lg:mt-0 bg-slate-500">
+            <div className="lg:w-800 w-80 h-32 border-radius flex align-items-center justify-center mt-5 lg:mt-0 bg-slate-500">
                 <h4 className=" text-white">ADS HERE</h4>
             </div>
-            <div className="relative box-border p-5">
+            <div className="relative flex gap-11 box-border p-5">
+                <div className="hidden xl:block">
+                    <AdsLong />
+                </div>
                 {singleBlog.map((e, index) => (
                     <div className="relative" key={index}>
                         <Image
                             src={e.image}
                             alt={`Image ${index}`}
-                            className="w-full border1px border-radius"
+                            className="md:w-800 w-96 h-56 md:h-462 border1px border3px border-radius"
                             width={800}
                             height={462}
-                            priority
+                            priority={true}
                         />
                         <div
                             className={`absolute box-border p-5 border1px border-radius gap-3 -bottom-40 w-350 lg:-bottom-10 left-10 flex md:w-478 md:h-243 ${
@@ -76,10 +81,11 @@ const Hero = ({ darkMode }) => {
                         </div>
                     </div>
                 ))}
+                <div className="hidden xl:block">
+                    <AdsLong />
+                </div>
             </div>
-            <div className="w-80 h-32 border-radius flex align-items-center justify-center mt-40 lg:mt-6 bg-slate-500">
-                <h4 className=" text-white">ADS HERE</h4>
-            </div>
+            <Ads />
         </div>
     );
 };

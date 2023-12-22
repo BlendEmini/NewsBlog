@@ -28,9 +28,11 @@ module.exports = {
             width: {
                 478: "478px", // Custom width definition
                 350: "290px",
+                800: "800px",
             },
             height: {
                 243: "243px",
+                462: "462px",
             },
         },
     },

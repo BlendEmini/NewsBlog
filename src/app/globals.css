@@ -19,6 +19,9 @@
 .border1px {
     border: 0.02px solid #ededed3a;
 }
+.border3px {
+    border: 2px solid #b7b6b63f;
+}
 .border1pxBox {
     border: 0.02px solid #ededed1b;
     border-radius: 8px;

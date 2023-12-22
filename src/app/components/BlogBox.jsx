@@ -11,8 +11,8 @@ const BlogBox = ({ darkMode, blog }) => {
         >
             <div>
                 <Image
-                    width={360}
-                    height={240}
+                    width={800}
+                    height={462}
                     alt="BlogBoxImage"
                     src={blog.image}
                 />
