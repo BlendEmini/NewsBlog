@@ -2,6 +2,7 @@ import React from "react";
 import BlogBox from "./BlogBox";
 import BlogContext from "../context/BlogContext";
 import { useContext } from "react";
+import AdsMap from "./AdsMap";
 const News = ({ darkMode }) => {
     const { blog } = useContext(BlogContext);
 
@@ -12,7 +13,12 @@ const News = ({ darkMode }) => {
                     box,
                     index // Added index as key for each BlogBox
                 ) => (
-                    <BlogBox key={index} blog={box} darkMode={darkMode} />
+                    <div key={index}>
+                        <BlogBox blog={box} darkMode={darkMode} />
+                        <div className="md:hidden ">
+                            <AdsMap />
+                        </div>
+                    </div>
                 )
             )}
         </div>
