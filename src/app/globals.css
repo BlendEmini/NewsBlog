@@ -19,6 +19,14 @@
 .border1px {
     border: 0.02px solid #ededed3a;
 }
+.border1pxBox {
+    border: 0.02px solid #ededed1b;
+    border-radius: 8px;
+}
+.border1pxBoxDark {
+    border: 0.05px solid #aaa9a9d7;
+    border-radius: 6px;
+}
 
 .align-items-center {
     align-items: center;
@@ -32,6 +40,7 @@
 .HamburgerMenu {
     display: none;
 }
+
 @media screen and (max-width: 920px) {
     .navbar {
         display: none;

@@ -19,7 +19,8 @@ module.exports = {
                 scLightBg: "#F4F4F5",
                 scLightText: "#3B3C4A",
                 blueButton: "#4B6BFB",
-                lightGrey: "##999999",
+                lightGrey: "#999999",
+                lightBlueButton: "#4b6bfb73",
             },
             alignItems: {
                 center: "center",
