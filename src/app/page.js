@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import Navbar from "./components/Navbar";
 import { BlogProvider } from "./context/BlogContext";
 import Homepage from "./components/Homepage";
