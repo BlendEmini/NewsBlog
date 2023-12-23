@@ -1,13 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import LogoDark from "../assets/logodark1.png";
 import LogoLight from "../assets/logolight1.png";
 import SearchLogo from "../assets/search-outline.png";
 import { BsFillMoonStarsFill } from "react-icons/bs";
+
 const Navbar = ({ darkMode, setDarkMode }) => {
     const toggleMode = () => {
-        setDarkMode(!darkMode);
+        setDarkMode(!darkMode); // Update darkMode based on the prop setDarkMode
     };
 
     const [showMenu, setShowMenu] = useState(false);
