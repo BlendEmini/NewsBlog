@@ -71,7 +71,7 @@ const CookieConsent = ({ onAccept, onReject }) => {
 
     return (
         <div className="cookie-consent">
-            <section className="absolute z-50 top-0 md:right-12 md:bottom-5 max-w-md p-4 mx-auto bg-white border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-2xl">
+            <section className="absolute z-50 left-0 right-0  top-0 md:left-auto md:top-auto md:right-12 md:bottom-5 max-w-md p-4 mx-auto bg-white border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-2xl">
                 <h2 className="font-semibold text-gray-800 dark:text-white">
                     🍪 We use cookies!
                 </h2>
