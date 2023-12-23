@@ -111,7 +111,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
             <button
                 onClick={toggleMode}
-                className={`px-4 py-2 flex-wrap border-radius ${
+                className={`px-3 py-1 flex-wrap border-radius ${
                     darkMode
                         ? "bg-white text-black"
                         : "bg-mainBgDark text-white"
