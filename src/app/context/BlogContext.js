@@ -13,7 +13,7 @@ export function BlogProvider({ children }) {
                 let { data: news, error } = await supabase
                     .from("news")
                     .select("*");
-                console.log(news);
+
                 if (error) {
                     console.error("Error fetching blog posts:", error.message);
                     return;

@@ -51,6 +51,44 @@ import HamburgerMenu from "./components/HamburgerMenu";
 import { getThemePreference, setThemePreference } from "./cookies";
 import CookieConsent from "./components/CookieConsent";
 
+// export default function Home() {
+//     const [showCookieConsent, setShowCookieConsent] = useState(false);
+//     const [darkMode, setDarkMode] = useState(false);
+
+//     useEffect(() => {
+//         const themePreference = getThemePreference();
+//         if (!themePreference) {
+//             setShowCookieConsent(true);
+//         } else {
+//             setDarkMode(themePreference === "dark");
+//         }
+//     }, []);
+
+//     const toggleDarkMode = () => {
+//         const newDarkMode = !darkMode;
+//         setDarkMode(newDarkMode);
+//         setThemePreference(newDarkMode ? "dark" : "light");
+//     };
+
+//     const handleAccept = () => {
+//         setShowCookieConsent(false); // Hide the cookie consent after accepting
+//     };
+
+//     return (
+//         <div>
+//             <BlogProvider>
+//                 <Navbar darkMode={darkMode} setDarkMode={toggleDarkMode} />
+//                 <HamburgerMenu
+//                     darkMode={darkMode}
+//                     setDarkMode={toggleDarkMode}
+//                 />
+//                 {showCookieConsent && <CookieConsent onAccept={handleAccept} />}
+//                 <Homepage darkMode={darkMode} />
+//             </BlogProvider>
+//         </div>
+//     );
+// }
+
 export default function Home() {
     const [showCookieConsent, setShowCookieConsent] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
@@ -74,6 +112,11 @@ export default function Home() {
         setShowCookieConsent(false); // Hide the cookie consent after accepting
     };
 
+    const handleReject = () => {
+        // ... Handle rejection logic if needed
+        setShowCookieConsent(false); // Hide the cookie consent after rejecting
+    };
+
     return (
         <div>
             <BlogProvider>
@@ -82,8 +125,13 @@ export default function Home() {
                     darkMode={darkMode}
                     setDarkMode={toggleDarkMode}
                 />
+                {showCookieConsent && (
+                    <CookieConsent
+                        onAccept={handleAccept}
+                        onReject={handleReject}
+                    />
+                )}
                 <Homepage darkMode={darkMode} />
-                {showCookieConsent && <CookieConsent onAccept={handleAccept} />}
             </BlogProvider>
         </div>
     );

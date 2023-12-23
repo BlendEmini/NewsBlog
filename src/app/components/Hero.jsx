@@ -34,11 +34,11 @@ const Hero = ({ darkMode }) => {
 
     return (
         <div className="flex flex-col justify-center align-items-center gap-3">
-            <div className="lg:w-800 w-80 h-32 border-radius flex align-items-center justify-center mt-5 lg:mt-0 bg-slate-500">
+            <div className="lg:w-800 w-80 smallD h-32 border-radius flex align-items-center justify-center mt-5 lg:mt-0 bg-slate-500">
                 <h4 className=" text-white">ADS HERE</h4>
             </div>
             <div className="relative flex gap-11 box-border p-5">
-                <div className="hidden xl:block">
+                <div className="hidden smallD xl:block">
                     <AdsLong />
                 </div>
                 {singleBlog.map((e, index) => (
@@ -52,7 +52,7 @@ const Hero = ({ darkMode }) => {
                             priority={true}
                         />
                         <div
-                            className={`absolute box-border p-5 border1px border-radius gap-3 -bottom-40 w-350 lg:-bottom-10 left-10 flex md:w-478 md:h-243 ${
+                            className={`absolute smallD box-border p-5 border1px border-radius gap-3 -bottom-40 w-350 lg:-bottom-10 left-10 flex md:w-478 md:h-243 ${
                                 darkMode
                                     ? "bg-mainBgDark text-white "
                                     : "bg-gray-100 text-black shadow-lg "

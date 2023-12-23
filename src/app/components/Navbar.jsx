@@ -119,7 +119,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             >
                 <BsFillMoonStarsFill
                     onClick={() => setDarkMode(!darkMode)}
-                    className="cursor-pointer text-2xl "
+                    className={`cursor-pointer text-2xl `}
                 />
             </button>
         </div>
