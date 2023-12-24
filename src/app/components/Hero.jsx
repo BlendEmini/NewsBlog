@@ -3,6 +3,7 @@ import BlogContext from "../context/BlogContext";
 import Image from "next/image";
 import Ads from "./Ads";
 import AdsLong from "./AdsLong";
+import AdsMid from "./AdsMid";
 
 const Hero = ({ darkMode }) => {
     const { blog } = useContext(BlogContext);
@@ -34,9 +35,7 @@ const Hero = ({ darkMode }) => {
 
     return (
         <div className="flex flex-col justify-center align-items-center gap-3">
-            <div className="lg:w-800 w-80 smallD h-32 border-radius flex align-items-center justify-center mt-5 lg:mt-0 bg-slate-500">
-                <h4 className=" text-white">ADS HERE</h4>
-            </div>
+            <AdsMid />
             <div className="relative flex gap-11 box-border p-5">
                 <div className="hidden smallD xl:block">
                     <AdsLong />

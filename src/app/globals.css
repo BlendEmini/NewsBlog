@@ -43,6 +43,9 @@
 .HamburgerMenu {
     display: none;
 }
+.align-items-start {
+    align-items: start;
+}
 
 @media screen and (max-width: 920px) {
     .navbar {
@@ -56,4 +59,6 @@
     .smallD {
         width: 232px;
     }
+}
+@media screen and (max-width: 430px) {
 }

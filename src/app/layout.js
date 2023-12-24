@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import { BlogProvider } from "./context/BlogContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,8 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
-            <SpeedInsights />
+            <BlogProvider>
+                <body className={inter.className}>{children}</body>
+            </BlogProvider>
+            {/* <SpeedInsights /> */}
         </html>
     );
 }

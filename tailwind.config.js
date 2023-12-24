@@ -24,9 +24,14 @@ module.exports = {
                 lightHoverBG: "#e5e5e59a",
                 darkHoverBG: "#3A3F58",
                 darkHoverText: "#9FA2B4",
+                lightParagraphColor: "#3B3C4A",
+                darkParagraphColor: "#BABABF",
             },
             alignItems: {
                 center: "center",
+            },
+            maxHeight: {
+                400: "400px",
             },
             width: {
                 478: "478px", // Custom width definition

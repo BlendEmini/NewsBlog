@@ -1,8 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import BlogContext from "@/app/context/BlogContext";
+import Navbar from "./Navbar";
+import HamburgerMenu from "./HamburgerMenu";
+import SingleBlog from "./SingleBlog";
 
 const SingleBlogView = () => {
-    const { blog } = useContext(BlogContext);
+    const { blog, darkMode, setDarkMode } = useContext(BlogContext);
     const [singleBlogData, setSingleBlogData] = useState(null);
 
     useEffect(() => {
@@ -24,9 +27,9 @@ const SingleBlogView = () => {
 
     return (
         <div>
-            {" "}
-            <div>{singleBlogData.title}</div>
-            <img src={singleBlogData.image} />
+            <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+            <HamburgerMenu darkMode={darkMode} setDarkMode={setDarkMode} />
+            <SingleBlog singleBlogData={singleBlogData} />
         </div>
     );
 };

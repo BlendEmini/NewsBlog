@@ -6,6 +6,7 @@ const BlogContext = createContext();
 
 export function BlogProvider({ children }) {
     const [blog, setBlog] = useState([]);
+    const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
         async function fetchPosts() {
@@ -28,7 +29,15 @@ export function BlogProvider({ children }) {
     }, []); // Run once on component mount
 
     return (
-        <BlogContext.Provider value={{ blog }}>{children}</BlogContext.Provider>
+        <BlogContext.Provider
+            value={{
+                blog,
+                darkMode,
+                setDarkMode,
+            }}
+        >
+            {children}
+        </BlogContext.Provider>
     );
 }
 

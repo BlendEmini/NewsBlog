@@ -8,7 +8,7 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
     const toggleMode = () => {
-        setDarkMode(!darkMode); // Update darkMode based on the prop setDarkMode
+        setDarkMode(!darkMode);
     };
 
     const [showMenu, setShowMenu] = useState(false);
