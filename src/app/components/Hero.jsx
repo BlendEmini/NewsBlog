@@ -35,21 +35,23 @@ const Hero = ({ darkMode }) => {
 
     return (
         <div className="flex flex-col justify-center align-items-center gap-3">
-            <AdsMid />
-            <div className="relative flex gap-11 box-border p-5">
+            {/* <AdsMid /> */}
+            <div className="relative gap-11 box-border py-3">
                 <div className="hidden smallD xl:block">
                     <AdsLong />
                 </div>
                 {singleBlog.map((e, index) => (
                     <div className="relative" key={index}>
-                        <Image
-                            src={e.image}
-                            alt={`Image ${index}`}
-                            className="md:w-800 w-96 h-56 md:h-462 border1px border3px border-radius"
-                            width={800}
-                            height={462}
-                            priority={true}
-                        />
+                        <div className="md:w-800 w-96 h-56 hero-res-mid md:h-462 border1px border3px border-radius">
+                            <Image
+                                src={e.image}
+                                alt={`Image ${index}`}
+                                className="md:w-800 w-96  h-56 md:h-462 border1px border3px border-radius"
+                                layout="fill"
+                                objectFit="cover"
+                                priority={true}
+                            />
+                        </div>
                         <div
                             className={`absolute smallD box-border p-5 border1px border-radius gap-3 -bottom-40 w-350 lg:-bottom-10 left-10 flex md:w-478 md:h-243 ${
                                 darkMode

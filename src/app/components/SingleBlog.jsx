@@ -53,6 +53,8 @@ const SingleBlog = ({ singleBlogData }) => {
                             className="md:max-w-3xl  box-border md:max-h-400 border-radius-btn"
                             width={800}
                             height={100}
+                            // layout="fill"
+                            // objectFit="cover"
                             alt="IMG"
                             src={singleBlogData.image}
                         />
