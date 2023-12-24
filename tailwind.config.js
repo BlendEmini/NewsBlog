@@ -26,6 +26,7 @@ module.exports = {
                 darkHoverText: "#9FA2B4",
                 lightParagraphColor: "#3B3C4A",
                 darkParagraphColor: "#BABABF",
+                btnBackground: "#4b6bfb0d",
             },
             alignItems: {
                 center: "center",

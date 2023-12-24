@@ -4,6 +4,7 @@ import Ads from "./Ads";
 import CookieConsent from "./CookieConsent";
 import BlogContext from "../context/BlogContext";
 import AdsMid from "./AdsMid";
+import CategoryBtn from "./CategoryBtn";
 
 const SingleBlog = ({ singleBlogData }) => {
     const { darkMode, setDarkMode } = useContext(BlogContext);
@@ -26,11 +27,7 @@ const SingleBlog = ({ singleBlogData }) => {
             <div className="box-border py-4">
                 <div className="flex box-border p-3 gap-4  max-w-3xl flex-col justify-center align-items-start">
                     <div className="flex w-full justify-between">
-                        <div className="w-28 py-1  bg-blueButton flex flex-col justify-items-center align-items-center box-border border-radius-btn">
-                            <h6 className="text-white font-bold">
-                                {singleBlogData.category}{" "}
-                            </h6>
-                        </div>
+                        <CategoryBtn category={singleBlogData.category} />
                         <div>
                             <h5
                                 className={`text-sm w-28  font-semibold text-gray-400 ${

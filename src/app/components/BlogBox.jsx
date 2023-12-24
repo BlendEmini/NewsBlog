@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import CategoryBtn from "./CategoryBtn";
 
 // className="box-border lg:mt-6 p-2 border1pxBox gap-2 flex flex-col w-80 "
 const BlogBox = ({ darkMode, blog }) => {
@@ -31,7 +33,7 @@ const BlogBox = ({ darkMode, blog }) => {
             className={`box-border shadow-md transition duration-300 group *:  p-3 ${
                 darkMode
                     ? "border1pxBox hover:bg-darkHoverBG"
-                    : "hover:bg-lightHoverBG border1pxBoxDark"
+                    : "hover:bg-lightHoverBG border1pxBox "
             } gap-2 flex flex-col w-80`}
         >
             <div>
@@ -43,6 +45,7 @@ const BlogBox = ({ darkMode, blog }) => {
                     priority={true}
                 />
             </div>
+            <CategoryBtn category={blog.category} />
 
             <div>
                 <h2
@@ -55,7 +58,7 @@ const BlogBox = ({ darkMode, blog }) => {
                     {blog.title}
                 </h2>
             </div>
-            <div className="flex align-items-center justify-between">
+            <div className="flex align-items-end justify-between">
                 <h5
                     className={`text-sm w-28  font-semibold text-gray-400 ${
                         darkMode
@@ -65,8 +68,16 @@ const BlogBox = ({ darkMode, blog }) => {
                 >
                     Created At: {blog.created_at.slice(0, 10)}
                 </h5>
-                <div className="w-28 py-1  bg-blueButton flex flex-col justify-items-center align-items-center box-border border-radius-btn">
-                    <h6 className="text-white font-bold">{blog.category} </h6>
+                <div>
+                    <h6
+                        className={`border-b ${
+                            darkMode
+                                ? "border-b-white text-white hover:text-red-500 hover:border-b-red-500"
+                                : "border-b-mainBgDark text-mainBgDark hover:text-blue-600 hover:border-b-blue-600"
+                        }  cursor-pointer font-semibold`}
+                    >
+                        Read More
+                    </h6>
                 </div>
             </div>
         </div>

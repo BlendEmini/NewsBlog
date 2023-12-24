@@ -42,9 +42,7 @@ const News = ({ darkMode }) => {
                         <Link href={`/blog/${box.id}`}>
                             <BlogBox blog={box} darkMode={darkMode} />
                         </Link>
-                        <div className="md:hidden ">
-                            <AdsMap />
-                        </div>
+                        <div className="md:hidden ">{/* <AdsMap /> */}</div>
                     </div>
                 )
             )}

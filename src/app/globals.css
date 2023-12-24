@@ -46,6 +46,12 @@
 .align-items-start {
     align-items: start;
 }
+.align-items-end {
+    align-items: end;
+}
+.btn {
+    color: #4b6bfb0d;
+}
 
 @media screen and (max-width: 920px) {
     .navbar {
