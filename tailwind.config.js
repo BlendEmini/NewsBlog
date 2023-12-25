@@ -27,6 +27,7 @@ module.exports = {
                 lightParagraphColor: "#3B3C4A",
                 darkParagraphColor: "#BABABF",
                 btnBackground: "#4b6bfb0d",
+                footerBG: "#141624",
             },
             alignItems: {
                 center: "center",

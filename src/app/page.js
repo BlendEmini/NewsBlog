@@ -7,6 +7,7 @@ import HamburgerMenu from "./components/HamburgerMenu";
 import { getThemePreference, setThemePreference } from "./cookies";
 import CookieConsent from "./components/CookieConsent";
 import BlogContext from "./context/BlogContext";
+import Footer from "./components/Footer";
 
 export default function Home() {
     const [showCookieConsent, setShowCookieConsent] = useState(false);
@@ -52,6 +53,7 @@ export default function Home() {
                     />
                 )}
                 <Homepage darkMode={darkMode} />
+                <Footer />
             </BlogProvider>
         </div>
     );
