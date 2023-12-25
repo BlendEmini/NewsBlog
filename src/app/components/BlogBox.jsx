@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import CategoryBtn from "./CategoryBtn";
 
 // className="box-border lg:mt-6 p-2 border1pxBox gap-2 flex flex-col w-80 "
@@ -51,7 +50,7 @@ const BlogBox = ({ darkMode, blog }) => {
                 <h2
                     className={`lg:text-xl text-lg font-bold ${
                         darkMode
-                            ? " hover:bg-darkHoverBG"
+                            ? "text-white hover:bg-darkHoverBG"
                             : "hover:bg-lightHoverBG "
                     } `}
                 >

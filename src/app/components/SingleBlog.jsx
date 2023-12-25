@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React, { useContext } from "react";
 import Ads from "./Ads";
-import CookieConsent from "./CookieConsent";
 import BlogContext from "../context/BlogContext";
 import AdsMid from "./AdsMid";
 import CategoryBtn from "./CategoryBtn";

@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import { BlogProvider } from "@/app/context/BlogContext";
 
-import SingleBlogView from "@/app/components/SingleBlogView";
+import SportsRoute from "@/app/components/SportsRoute";
 
 const Page = () => {
     return (
         <BlogProvider>
-            <SingleBlogView />
+            <SportsRoute />
         </BlogProvider>
     );
 };

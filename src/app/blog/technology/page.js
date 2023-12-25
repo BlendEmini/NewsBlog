@@ -1,13 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { BlogProvider } from "@/app/context/BlogContext";
-
-import SingleBlogView from "@/app/components/SingleBlogView";
+import TechnologyRoute from "@/app/components/TechnologyRoute";
 
 const Page = () => {
     return (
         <BlogProvider>
-            <SingleBlogView />
+            <TechnologyRoute />
         </BlogProvider>
     );
 };

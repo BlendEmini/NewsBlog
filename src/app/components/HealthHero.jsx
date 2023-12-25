@@ -1,16 +1,11 @@
+import Link from "next/link";
 import React from "react";
 import BlogBox from "./BlogBox";
-import BlogContext from "../context/BlogContext";
-import { useContext } from "react";
-import AdsMap from "./AdsMap";
-import Link from "next/link";
-const News = ({ darkMode }) => {
-    const { blog } = useContext(BlogContext);
-    console.log(blog);
 
-    if (!blog || blog.length === 0) {
+const HealthHero = ({ healthData, darkMode }) => {
+    if (!healthData || healthData.length === 0) {
         return (
-            <div role="status">
+            <div className="flex justify-center" role="status">
                 <svg
                     aria-hidden="true"
                     className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -34,21 +29,16 @@ const News = ({ darkMode }) => {
 
     return (
         <div className="flex max-w-5xl mt-5 lg:mt-9 justify-center flex-wrap gap-7">
-            {blog.map(
-                (
-                    box,
-                    index // Added index as key for each BlogBox
-                ) => (
-                    <div key={index}>
-                        <Link href={`/blog/${box.id}`}>
-                            <BlogBox blog={box} darkMode={darkMode} />
-                        </Link>
-                        <div className="md:hidden ">{/* <AdsMap /> */}</div>
-                    </div>
-                )
-            )}
+            {healthData.map((box, index) => (
+                <div key={box.id}>
+                    <Link href={`/blog/${box.id}`}>
+                        <BlogBox blog={box} darkMode={darkMode} />
+                    </Link>
+                    <div className="md:hidden ">{/* <AdsMap /> */}</div>
+                </div>
+            ))}
         </div>
     );
 };
 
-export default News;
+export default HealthHero;

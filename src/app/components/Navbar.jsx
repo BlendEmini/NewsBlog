@@ -32,7 +32,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             </div>
             <div className="flex flex-wrap gap-3">
                 <a
-                    href="/homepage"
+                    href="/"
                     className={` text-lg ${
                         darkMode ? "text-white" : "text-text-scLightText"
                     }`}
@@ -40,7 +40,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                     Homepage
                 </a>
                 <a
-                    href="/Politics"
+                    href="/blog/politics"
                     className={`text-lg ${
                         darkMode ? "text-white" : "text-scLightText"
                     }`}
@@ -48,7 +48,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                     Politics
                 </a>
                 <a
-                    href="/Sports"
+                    href="/blog/sports"
                     className={`text-lg ${
                         darkMode ? "text-white" : "text-scLightText"
                     }`}
@@ -56,7 +56,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                     Sports
                 </a>
                 <a
-                    href="/Business"
+                    href="/blog/business"
                     className={`text-lg ${
                         darkMode ? "text-white" : "text-scLightText"
                     }`}
@@ -64,7 +64,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                     Business
                 </a>
                 <a
-                    href="/Technology"
+                    href="/blog/technology"
                     className={`text-lg ${
                         darkMode ? "text-white" : "text-scLightText"
                     }`}
@@ -72,12 +72,20 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                     Technology
                 </a>
                 <a
-                    href="/Health"
+                    href="/blog/health"
                     className={`text-lg ${
                         darkMode ? "text-white" : "text-scLightText"
                     }`}
                 >
                     Health
+                </a>
+                <a
+                    href="/blog/others"
+                    className={`text-lg ${
+                        darkMode ? "text-white" : "text-scLightText"
+                    }`}
+                >
+                    Others
                 </a>
             </div>
             <div>
