@@ -97,13 +97,16 @@ function HamburgerMenu({ darkMode, setDarkMode }) {
                     }`}
                 >
                     <div className="px-8">
-                        <div className="flex justify-center align-items-center flex-col gap-8 font-bold tracking-wider">
-                            <a href="#" className="border-l-4 border-gray-600">
-                                Features
+                        <div className="flex justify-center mt-11 align-items-center flex-col gap-8 font-bold tracking-wider">
+                            <a href="/" className="border-l-4 border-gray-600">
+                                Homepage
                             </a>
-                            <a href="#">Pricing</a>
-                            <a href="#">Download</a>
-                            <a href="#">Classic</a>
+                            <a href="/blog/politics">Politics</a>
+                            <a href="/blog/business">Business</a>
+                            <a href="/blog/health">Health</a>
+                            <a href="/blog/sports">Sports</a>
+                            <a href="/blog/technology">Technology</a>
+                            <a href="/blog/others">Others</a>
                         </div>
                     </div>
                 </div>

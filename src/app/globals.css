@@ -75,6 +75,9 @@
     .hero-res-mid {
         width: 335px;
     }
+    .smallD {
+        left: 1.5rem;
+    }
 }
 @media screen and (max-width: 280px) {
     .hero-res-mid {
