@@ -11,6 +11,7 @@ import Image from "next/image";
 import LogoDark from "../assets/logodark1.png";
 import LogoLight from "../assets/logolight1.png";
 import { BsFillMoonStarsFill } from "react-icons/bs";
+import Link from "next/link";
 
 function HamburgerMenu({ darkMode, setDarkMode }) {
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -33,12 +34,14 @@ function HamburgerMenu({ darkMode, setDarkMode }) {
                         <div className="flex items-center gap-16">
                             {/* logo */}
                             <div>
-                                <Image
-                                    alt="logo"
-                                    width={220}
-                                    height={85}
-                                    src={darkMode ? LogoDark : LogoLight}
-                                />
+                                <Link href={"/"}>
+                                    <Image
+                                        alt="logo"
+                                        width={220}
+                                        height={85}
+                                        src={darkMode ? LogoDark : LogoLight}
+                                    />
+                                </Link>
                             </div>
                             {/* primary */}
                             <div className="hidden lg:flex gap-8 ">

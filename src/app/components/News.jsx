@@ -1,15 +1,10 @@
-"use client";
-import React, { useContext } from "react";
 import BlogBox from "./BlogBox";
-import BlogContext from "../context/BlogContext";
 import Link from "next/link";
 
-const News = ({ darkMode }) => {
-    const { blog, loadMorePosts } = useContext(BlogContext);
-
+const News = ({ darkMode, blog, loadMorePosts, visiblePosts }) => {
     if (!blog || blog.length === 0) {
         return (
-            <div role="status">
+            <div className="flex justify-center" role="status">
                 <svg
                     aria-hidden="true"
                     className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -31,9 +26,11 @@ const News = ({ darkMode }) => {
         );
     }
 
+    const visibleBlogPosts = blog.slice(0, visiblePosts);
+
     return (
         <div className="flex pb-20 max-w-5xl mt-5 lg:mt-9 justify-center flex-wrap gap-7">
-            {blog.map((box, index) => (
+            {visibleBlogPosts.map((box, index) => (
                 <div key={index}>
                     <Link href={`/blog/${box.id}`}>
                         <BlogBox blog={box} darkMode={darkMode} />
@@ -41,16 +38,18 @@ const News = ({ darkMode }) => {
                     <div className="md:hidden ">{/* <AdsMap /> */}</div>
                 </div>
             ))}
-            <button
-                className={`box-border px-3  py-2 border-2 ${
-                    darkMode
-                        ? "hover:bg-darkHoverBG text-white"
-                        : "hover:bg-darkHoverBG hover:text-white"
-                }  border-blue-500 rounded-md`}
-                onClick={loadMorePosts}
-            >
-                Load More
-            </button>
+            {visiblePosts < blog.length && (
+                <button
+                    className={`box-border px-3 py-2 border-2 ${
+                        darkMode
+                            ? "hover:bg-darkHoverBG text-white"
+                            : "hover:bg-darkHoverBG hover:text-white"
+                    } border-blue-500 rounded-md`}
+                    onClick={loadMorePosts}
+                >
+                    Load More
+                </button>
+            )}
         </div>
     );
 };

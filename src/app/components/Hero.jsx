@@ -1,19 +1,43 @@
-"use client";
-import React, { useContext } from "react";
-import BlogContext from "../context/BlogContext";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Ads from "./Ads";
-import AdsLong from "./AdsLong";
-import AdsMid from "./AdsMid";
 import Link from "next/link";
+import { supabase } from "../supabase";
 
 const Hero = ({ darkMode }) => {
-    const { blog } = useContext(BlogContext);
-    const singleBlog = blog.slice(0, 1);
+    const [singleBlog, setSingleBlog] = useState(null);
 
-    if (!blog || blog.length === 0) {
+    useEffect(() => {
+        async function fetchLastBlog() {
+            try {
+                const { data: blogs, error } = await supabase
+                    .from("news")
+                    .select("*")
+                    .order("created_at", { ascending: false })
+                    .range(0, 1);
+
+                if (error) {
+                    console.error(
+                        "Error fetching last blog post:",
+                        error.message
+                    );
+                    return;
+                }
+
+                if (blogs && blogs.length > 0) {
+                    setSingleBlog(blogs[0]);
+                }
+            } catch (error) {
+                console.error("Error fetching last blog post:", error.message);
+            }
+        }
+
+        fetchLastBlog();
+    }, []);
+
+    if (!singleBlog) {
         return (
-            <div role="status">
+            <div className="flex justify-center" role="status">
                 <svg
                     aria-hidden="true"
                     className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -37,57 +61,49 @@ const Hero = ({ darkMode }) => {
 
     return (
         <div className="flex flex-col justify-center align-items-center gap-3">
-            {/* <AdsMid /> */}
             <div className="relative gap-11 box-border py-3">
-                <div className="hidden smallD xl:block">
-                    <AdsLong />
-                </div>
-                {singleBlog.map((e, index) => (
-                    <div className="relative cursor-pointer " key={index}>
-                        <Link href={`/blog/${e.id}`}>
-                            <div className="md:w-800 w-96 h-56 hero-res-mid md:h-462 border1px border3px border-radius">
-                                <Image
-                                    src={e.image}
-                                    alt={`Image ${index}`}
-                                    className="md:w-800 w-96  h-56 md:h-462 border1px border3px border-radius"
-                                    layout="fill"
-                                    objectFit="cover"
-                                    priority={true}
-                                />
+                <div className="relative cursor-pointer ">
+                    <Link href={`/blog/${singleBlog.id}`}>
+                        <div className="md:w-800 w-96 h-56 hero-res-mid md:h-462 border1px border3px border-radius">
+                            <Image
+                                src={singleBlog.image}
+                                alt={`Image`}
+                                className="md:w-800 w-96  h-56 md:h-462 border1px border3px border-radius"
+                                layout="fill"
+                                objectFit="cover"
+                                priority={true}
+                            />
+                        </div>
+                        <div
+                            className={`absolute smallD box-border p-5 border1px border-radius gap-3 -bottom-40 w-350 lg:-bottom-10 left-10 flex md:w-478 md:h-243 ${
+                                darkMode
+                                    ? "bg-mainBgDark text-white "
+                                    : "bg-gray-100 text-black shadow-lg "
+                            } flex-col justify-between`}
+                        >
+                            <div className="w-28 py-1  bg-blueButton flex flex-col justify-items-center align-items-center box-border border-radius-btn">
+                                <h6 className="text-white font-bold">
+                                    {singleBlog.category}
+                                </h6>
                             </div>
-                            <div
-                                className={`absolute smallD box-border p-5 border1px border-radius gap-3 -bottom-40 w-350 lg:-bottom-10 left-10 flex md:w-478 md:h-243 ${
-                                    darkMode
-                                        ? "bg-mainBgDark text-white "
-                                        : "bg-gray-100 text-black shadow-lg "
-                                } flex-col justify-between`}
-                            >
-                                <div className="w-28 py-1  bg-blueButton flex flex-col justify-items-center align-items-center box-border border-radius-btn">
-                                    <h6 className="text-white font-bold">
-                                        {e.category}{" "}
-                                    </h6>
-                                </div>
-                                <div>
-                                    <h2 className="lg:text-3xl text-xl">
-                                        {e.title}
-                                    </h2>
-                                </div>
-                                <div className="flex align-items-center justify-between">
-                                    <h5 className="text-sm w-28 text-gray-400">
-                                        Created At: {e.created_at.slice(0, 10)}
+                            <div>
+                                <h2 className="lg:text-3xl text-xl">
+                                    {singleBlog.title}
+                                </h2>
+                            </div>
+                            <div className="flex align-items-center justify-between">
+                                <h5 className="text-sm w-28 text-gray-400">
+                                    Created At:{" "}
+                                    {singleBlog.created_at.slice(0, 10)}
+                                </h5>
+                                <div className="md:px-4 px-3 py-2 flex justify-center bg-blue-950 rounded-md">
+                                    <h5 className="text-sm text-white font-bold">
+                                        Latest News
                                     </h5>
-                                    <div className="md:px-4 px-3 py-2 flex justify-center bg-blue-950 rounded-md">
-                                        <h5 className="text-sm text-white font-bold">
-                                            Latest News
-                                        </h5>
-                                    </div>
                                 </div>
                             </div>
-                        </Link>
-                    </div>
-                ))}
-                <div className="hidden xl:block">
-                    <AdsLong />
+                        </div>
+                    </Link>
                 </div>
             </div>
             <Ads />
