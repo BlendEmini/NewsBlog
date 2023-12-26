@@ -1,3 +1,4 @@
+"use client";
 import React, { useContext } from "react";
 import BlogContext from "../context/BlogContext";
 import Image from "next/image";

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import BlogBox from "./BlogBox";
 import BlogContext from "../context/BlogContext";

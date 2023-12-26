@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useContext, useEffect } from "react";
 import BlogContext from "@/app/context/BlogContext";
 import Navbar from "./Navbar";
