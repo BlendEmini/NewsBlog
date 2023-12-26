@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useEffect, useContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { supabase } from "../supabase";
 
 const BlogContext = createContext();
@@ -8,6 +8,7 @@ export function BlogProvider({ children }) {
     const [blog, setBlog] = useState([]);
     const [darkMode, setDarkMode] = useState(false);
     const [visiblePosts, setVisiblePosts] = useState(6);
+    const [currentPost, setCurrentPost] = useState(null);
 
     useEffect(() => {
         async function fetchPosts() {
@@ -33,6 +34,26 @@ export function BlogProvider({ children }) {
         setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 3);
     };
 
+    // Function to fetch a single post by ID
+    const fetchPostById = async (postId) => {
+        try {
+            const { data: post, error } = await supabase
+                .from("news")
+                .select("*")
+                .eq("id", postId)
+                .single();
+
+            if (error) {
+                console.error("Error fetching blog post by ID:", error.message);
+                return;
+            }
+
+            setCurrentPost(post);
+        } catch (error) {
+            console.error("Error fetching blog post by ID:", error.message);
+        }
+    };
+
     return (
         <BlogContext.Provider
             value={{
@@ -40,6 +61,8 @@ export function BlogProvider({ children }) {
                 darkMode,
                 setDarkMode,
                 loadMorePosts,
+                currentPost,
+                fetchPostById,
             }}
         >
             {children}

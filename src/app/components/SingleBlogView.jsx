@@ -4,27 +4,24 @@ import BlogContext from "@/app/context/BlogContext";
 import Navbar from "./Navbar";
 import HamburgerMenu from "./HamburgerMenu";
 import SingleBlog from "./SingleBlog";
+import Footer from "./Footer";
 
 const SingleBlogView = () => {
-    const { blog, darkMode, setDarkMode } = useContext(BlogContext);
-    const [singleBlogData, setSingleBlogData] = useState(null);
+    const { fetchPostById, currentPost, darkMode, setDarkMode } =
+        useContext(BlogContext);
 
     useEffect(() => {
-        if (blog && blog.length > 0) {
-            const currentURL = window.location.pathname;
-            const parts = currentURL.split("/");
-            const urlId = parts[parts.length - 1];
+        const currentURL = window.location.pathname;
+        const parts = currentURL.split("/");
+        const urlId = parts[parts.length - 1];
 
-            const singleBlog = blog.find(({ id }) => id.toString() === urlId);
-            if (singleBlog) {
-                setSingleBlogData(singleBlog);
-            }
-        }
-    }, [blog]);
+        // Fetch single blog post based on the URL ID
+        fetchPostById(urlId);
+    }, [fetchPostById]);
 
-    if (!singleBlogData) {
+    if (!currentPost) {
         return (
-            <div className="flex justify-center mt-9" role="status">
+            <div className="flex justify-center" role="status">
                 <svg
                     aria-hidden="true"
                     className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -50,7 +47,8 @@ const SingleBlogView = () => {
         <div>
             <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
             <HamburgerMenu darkMode={darkMode} setDarkMode={setDarkMode} />
-            <SingleBlog singleBlogData={singleBlogData} />
+            <SingleBlog singleBlogData={currentPost} />
+            <Footer />
         </div>
     );
 };
