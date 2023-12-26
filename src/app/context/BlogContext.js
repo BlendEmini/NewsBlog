@@ -7,6 +7,7 @@ const BlogContext = createContext();
 export function BlogProvider({ children }) {
     const [blog, setBlog] = useState([]);
     const [darkMode, setDarkMode] = useState(false);
+    const [visiblePosts, setVisiblePosts] = useState(6);
 
     useEffect(() => {
         async function fetchPosts() {
@@ -19,21 +20,26 @@ export function BlogProvider({ children }) {
                     console.error("Error fetching blog posts:", error.message);
                     return;
                 }
-                setBlog(news.reverse()); // Fix the variable name here to match the destructured variable
+                setBlog(news.reverse());
             } catch (error) {
                 console.error("Error fetching blog posts:", error.message);
             }
         }
 
         fetchPosts();
-    }, []); // Run once on component mount
+    }, []);
+
+    const loadMorePosts = () => {
+        setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 3);
+    };
 
     return (
         <BlogContext.Provider
             value={{
-                blog,
+                blog: blog.slice(0, visiblePosts),
                 darkMode,
                 setDarkMode,
+                loadMorePosts,
             }}
         >
             {children}
@@ -42,14 +48,3 @@ export function BlogProvider({ children }) {
 }
 
 export default BlogContext;
-
-// import React from "react";
-// import Hero from "../components/Hero";
-// import { BlogProvider } from "../context/BlogContext";
-
-// export default function Homepage({ darkMode }) {
-//     return;
-//     <BlogProvider>
-//         <Hero />;
-//     </BlogProvider>;
-// }

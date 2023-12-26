@@ -5,6 +5,7 @@ import LogoDark from "../assets/logodark1.png";
 import LogoLight from "../assets/logolight1.png";
 import SearchLogo from "../assets/search-outline.png";
 import { BsFillMoonStarsFill } from "react-icons/bs";
+import Link from "next/link";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
     const toggleMode = () => {
@@ -23,12 +24,14 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             }`}
         >
             <div>
-                <Image
-                    alt="logo"
-                    width={220}
-                    height={52}
-                    src={darkMode ? LogoDark : LogoLight}
-                />
+                <Link href={"/"}>
+                    <Image
+                        alt="logo"
+                        width={220}
+                        height={52}
+                        src={darkMode ? LogoDark : LogoLight}
+                    />
+                </Link>
             </div>
             <div className="flex flex-wrap gap-3">
                 <a

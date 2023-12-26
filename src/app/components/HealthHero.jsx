@@ -29,7 +29,7 @@ const HealthHero = ({ healthData, darkMode }) => {
     }
 
     return (
-        <div className="flex max-w-5xl mt-5 lg:mt-9 justify-center flex-wrap gap-7">
+        <div className="flex pb-16 max-w-5xl mt-5 lg:mt-9 justify-center flex-wrap gap-7">
             {healthData.map((box, index) => (
                 <div key={box.id}>
                     <Link href={`/blog/${box.id}`}>
