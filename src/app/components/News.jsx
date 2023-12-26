@@ -34,7 +34,7 @@ const News = ({ darkMode }) => {
     }
 
     return (
-        <div className="flex max-w-5xl mt-5 lg:mt-9 justify-center flex-wrap gap-7">
+        <div className="flex pb-20 max-w-5xl mt-5 lg:mt-9 justify-center flex-wrap gap-7">
             {blog.map(
                 (
                     box,
