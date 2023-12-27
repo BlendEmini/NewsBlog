@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+"use client";
+>>>>>>> parent of 25973a9 (trying to fix meta data)
 =======
 "use client";
 >>>>>>> parent of 25973a9 (trying to fix meta data)
