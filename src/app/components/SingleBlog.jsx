@@ -2,12 +2,10 @@ import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import AdsMid from "./AdsMid";
 import CategoryBtn from "./CategoryBtn";
-import { useRouter } from "next/router";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import Head from "next/head";
 import BlogContext from "../context/BlogContext";
 
 const SingleBlog = ({ singleBlogData }) => {
-    const router = useRouter();
     const { darkMode } = useContext(BlogContext);
     const [currentPost, setCurrentPost] = useState(null);
 
@@ -22,43 +20,9 @@ const SingleBlog = ({ singleBlogData }) => {
     }, [currentPost]);
 
     const setMetaTags = () => {
-        Helmet.canUseDOM &&
-            Helmet.renderStatic(() => {
-                return (
-                    <Helmet>
-                        <title>{currentPost.title || "Default Title"}</title>
-                        <meta
-                            name="description"
-                            content={
-                                currentPost.shortdescription ||
-                                "Default Description"
-                            }
-                        />
-                        <meta
-                            property="og:title"
-                            content={currentPost.title || "Default Title"}
-                        />
-                        <meta
-                            property="og:description"
-                            content={
-                                currentPost.shortdescription ||
-                                "Default Description"
-                            }
-                        />
-                        <meta
-                            property="og:image"
-                            content={currentPost.image || "Default Image URL"}
-                        />
-                        <meta
-                            property="og:url"
-                            content={
-                                `https://www.americanlensnews.com/blog/${router.query.id}` ||
-                                "Default URL"
-                            }
-                        />
-                    </Helmet>
-                );
-            });
+        if (typeof window !== "undefined") {
+            document.title = currentPost.title || "Default Title";
+        }
     };
 
     if (!currentPost) {
@@ -66,82 +30,112 @@ const SingleBlog = ({ singleBlogData }) => {
     }
 
     return (
-        <HelmetProvider>
-            <div
-                className={`flex box-border align-items-center ${
-                    darkMode ? "bg-mainBgDark" : "bg-white"
-                } flex-col justify-center`}
-            >
-                <AdsMid />
-                <div className="box-border py-4">
-                    <div className="flex box-border p-3 gap-4 max-w-3xl flex-col justify-center">
-                        <div className="flex w-full justify-between">
-                            <CategoryBtn category={singleBlogData.category} />
-                            <div>
-                                <h5
-                                    className={`text-sm w-28 font-semibold text-gray-400 ${
-                                        darkMode
-                                            ? "group-hover:text-white"
-                                            : "group-hover:text-mainBgDark"
-                                    }`}
-                                >
-                                    Created At:{" "}
-                                    {singleBlogData.created_at.slice(0, 10)}
-                                </h5>
-                            </div>
-                        </div>
-                        <div
-                            className={` ${
-                                darkMode ? "text-white" : "text-mainBgDark"
-                            } md:text-4xl text-3xl font-semibold `}
-                        >
-                            {singleBlogData.title}
-                        </div>
+        <div
+            className={`flex box-border align-items-center ${
+                darkMode ? "bg-mainBgDark" : "bg-white"
+            } flex-col justify-center`}
+        >
+            <AdsMid />
+            <div className="box-border py-4">
+                <div className="flex box-border p-3 gap-4 max-w-3xl flex-col justify-center">
+                    <div className="flex w-full justify-between">
+                        <CategoryBtn category={singleBlogData.category} />
                         <div>
-                            <Image
-                                className="md:max-w-3xl box-border md:max-h-400 border-radius-btn"
-                                width={800}
-                                height={100}
-                                priority={true}
-                                alt="IMG"
-                                src={singleBlogData.image}
-                            />
+                            <h5
+                                className={`text-sm w-28 font-semibold text-gray-400 ${
+                                    darkMode
+                                        ? "group-hover:text-white"
+                                        : "group-hover:text-mainBgDark"
+                                }`}
+                            >
+                                Created At:{" "}
+                                {singleBlogData.created_at.slice(0, 10)}
+                            </h5>
                         </div>
-                        <div className="box-border p-3">
-                            <h6
-                                className={` ${
-                                    darkMode
-                                        ? "text-darkParagraphColor"
-                                        : "text-lightParagraphColor"
-                                } text-sm md:text-base font-normal`}
-                            >
-                                {singleBlogData.shortdescription}
-                            </h6>
-                            <br />
-                            <h6
-                                className={` ${
-                                    darkMode
-                                        ? "text-darkParagraphColor"
-                                        : "text-lightParagraphColor"
-                                } text-sm md:text-base font-normal`}
-                            >
-                                {singleBlogData.midDescription}
-                            </h6>
-                            <br />
-                            <h6
-                                className={` ${
-                                    darkMode
-                                        ? "text-darkParagraphColor"
-                                        : "text-lightParagraphColor"
-                                } text-sm md:text-base font-normal`}
-                            >
-                                {singleBlogData.description}
-                            </h6>
-                        </div>
+                    </div>
+                    <div
+                        className={`${
+                            darkMode ? "text-white" : "text-mainBgDark"
+                        } md:text-4xl text-3xl font-semibold`}
+                    >
+                        {singleBlogData.title}
+                    </div>
+                    <div>
+                        <Image
+                            className="md:max-w-3xl box-border md:max-h-400 border-radius-btn"
+                            width={800}
+                            height={100}
+                            priority={true}
+                            alt="IMG"
+                            src={singleBlogData.image}
+                        />
+                    </div>
+                    <div className="box-border p-3">
+                        <h6
+                            className={` ${
+                                darkMode
+                                    ? "text-darkParagraphColor"
+                                    : "text-lightParagraphColor"
+                            } text-sm md:text-base font-normal`}
+                        >
+                            {singleBlogData.shortdescription}
+                        </h6>
+                        <br />
+                        <h6
+                            className={` ${
+                                darkMode
+                                    ? "text-darkParagraphColor"
+                                    : "text-lightParagraphColor"
+                            } text-sm md:text-base font-normal`}
+                        >
+                            {singleBlogData.midDescription}
+                        </h6>
+                        <br />
+                        <h6
+                            className={` ${
+                                darkMode
+                                    ? "text-darkParagraphColor"
+                                    : "text-lightParagraphColor"
+                            } text-sm md:text-base font-normal`}
+                        >
+                            {singleBlogData.description}
+                        </h6>
                     </div>
                 </div>
             </div>
-        </HelmetProvider>
+            {/* Setting up meta tags using Head */}
+            <Head>
+                <title>{currentPost.title || "Default Title"}</title>
+                <meta
+                    name="description"
+                    content={
+                        currentPost.shortdescription || "Default Description"
+                    }
+                />
+                <meta
+                    property="og:title"
+                    content={currentPost.title || "Default Title"}
+                />
+                <meta
+                    property="og:description"
+                    content={
+                        currentPost.shortdescription || "Default Description"
+                    }
+                />
+                <meta
+                    property="og:image"
+                    content={currentPost.image || "Default Image URL"}
+                />
+                {/* Replace `router.query.id` with the direct ID */}
+                <meta
+                    property="og:url"
+                    content={
+                        `https://www.americanlensnews.com/blog/${singleBlogData.id}` ||
+                        "Default URL"
+                    }
+                />
+            </Head>
+        </div>
     );
 };
 
