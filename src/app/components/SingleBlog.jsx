@@ -8,15 +8,7 @@ import CategoryBtn from "./CategoryBtn";
 
 const SingleBlog = ({ singleBlogData }) => {
     const { darkMode, setDarkMode } = useContext(BlogContext);
-    const formattedDescription = singleBlogData.shortdescription
-        .split(". ")
-        .map((sentence, index) => (
-            <React.Fragment key={index}>
-                {sentence.trim()}
-                .<br />
-                {/* <AdsMid /> */}
-            </React.Fragment>
-        ));
+    console.log(singleBlogData);
     return (
         <div
             className={`flex box-border align-items-center ${
@@ -25,7 +17,7 @@ const SingleBlog = ({ singleBlogData }) => {
         >
             <AdsMid />
             <div className="box-border py-4">
-                <div className="flex box-border p-3 gap-4  max-w-3xl flex-col justify-center align-items-start">
+                <div className="flex box-border p-3 gap-4  max-w-3xl flex-col justify-center">
                     <div className="flex w-full justify-between">
                         <CategoryBtn category={singleBlogData.category} />
                         <div>
@@ -50,25 +42,46 @@ const SingleBlog = ({ singleBlogData }) => {
                     </div>
                     <div>
                         <Image
-                            className="md:max-w-3xl  box-border md:max-h-400 border-radius-btn"
-                            width={800}
-                            height={100}
-                            // layout="fill"
-                            // objectFit="cover"
+                            className="md:max-w-3xl  box-border md:max-h-400 border-radius-btn relative-img"
+                            // width={800}
+                            // height={100}
+                            layout="fill"
+                            objectFit="cover"
+                            priority={true}
                             alt="IMG"
                             src={singleBlogData.image}
                         />
                     </div>
                     <div className="box-border p-3">
-                        <h5
+                        <h6
                             className={`${
                                 darkMode
                                     ? "text-darkParagraphColor"
                                     : "text-lightParagraphColor"
-                            } md:text-xl text-lg font-normal`}
+                            }  text-sm md:text-base font-normal`}
                         >
-                            {formattedDescription}
-                        </h5>
+                            {singleBlogData.shortdescription}
+                        </h6>
+                        <br></br>
+                        <h6
+                            className={`${
+                                darkMode
+                                    ? "text-darkParagraphColor"
+                                    : "text-lightParagraphColor"
+                            }  text-sm md:text-base font-normal`}
+                        >
+                            {singleBlogData.midDescription}
+                        </h6>
+                        <br></br>
+                        <h6
+                            className={`${
+                                darkMode
+                                    ? "text-darkParagraphColor"
+                                    : "text-lightParagraphColor"
+                            }  text-sm md:text-base font-normal`}
+                        >
+                            {singleBlogData.description}
+                        </h6>
                     </div>
                 </div>
             </div>
