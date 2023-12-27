@@ -6,12 +6,13 @@ import BlogContext from "../context/BlogContext";
 import AdsMid from "./AdsMid";
 import CategoryBtn from "./CategoryBtn";
 import Head from "next/head";
+import { Helmet } from "react-helmet-async";
 const SingleBlog = ({ singleBlogData }) => {
     const { darkMode, setDarkMode } = useContext(BlogContext);
     console.log(singleBlogData);
     return (
         <>
-            <Head>
+            <Helmet>
                 <title>{singleBlogData.title}</title>
                 <meta
                     name="description"
@@ -28,7 +29,8 @@ const SingleBlog = ({ singleBlogData }) => {
                     content={`https://www.americanlensnews.com/blog/${singleBlogData.id}`}
                 />
                 <meta property="og:type" content="article" />
-            </Head>
+                {/* Other meta tags */}
+            </Helmet>
             <div
                 className={`flex box-border align-items-center ${
                     darkMode ? "bg-mainBgDark" : "bg-white"

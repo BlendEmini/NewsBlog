@@ -1,3 +1,4 @@
+// src/app/blog/[id]/page.js
 "use client";
 import React, { useState } from "react";
 import { BlogProvider } from "@/app/context/BlogContext";
