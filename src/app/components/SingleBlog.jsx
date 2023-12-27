@@ -12,7 +12,6 @@ const SingleBlog = ({ singleBlogData }) => {
     return (
         <>
             <Head>
-                {/* Open Graph Meta Tags */}
                 <title>{singleBlogData.title}</title>
                 <meta
                     name="description"
@@ -26,7 +25,7 @@ const SingleBlog = ({ singleBlogData }) => {
                 <meta property="og:image" content={singleBlogData.image} />
                 <meta
                     property="og:url"
-                    content={`https://www.yourwebsite.com/blog/${singleBlogData.id}`}
+                    content={`https://www.americanlensnews.com/blog/${singleBlogData.id}`}
                 />
                 <meta property="og:type" content="article" />
             </Head>
