@@ -1,17 +1,17 @@
-"use client";
 import Image from "next/image";
 import React, { useContext } from "react";
 import Ads from "./Ads";
 import BlogContext from "../context/BlogContext";
 import AdsMid from "./AdsMid";
 import CategoryBtn from "./CategoryBtn";
-import Head from "next/head";
-import { Helmet } from "react-helmet-async";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+
 const SingleBlog = ({ singleBlogData }) => {
     const { darkMode, setDarkMode } = useContext(BlogContext);
     console.log(singleBlogData);
+
     return (
-        <>
+        <HelmetProvider>
             <Helmet>
                 <title>{singleBlogData.title}</title>
                 <meta
@@ -31,6 +31,7 @@ const SingleBlog = ({ singleBlogData }) => {
                 <meta property="og:type" content="article" />
                 {/* Other meta tags */}
             </Helmet>
+
             <div
                 className={`flex box-border align-items-center ${
                     darkMode ? "bg-mainBgDark" : "bg-white"
@@ -38,16 +39,16 @@ const SingleBlog = ({ singleBlogData }) => {
             >
                 <AdsMid />
                 <div className="box-border py-4">
-                    <div className="flex box-border p-3 gap-4  max-w-3xl flex-col justify-center">
+                    <div className="flex box-border p-3 gap-4 max-w-3xl flex-col justify-center">
                         <div className="flex w-full justify-between">
                             <CategoryBtn category={singleBlogData.category} />
                             <div>
                                 <h5
-                                    className={`text-sm w-28  font-semibold text-gray-400 ${
+                                    className={`text-sm w-28 font-semibold text-gray-400 ${
                                         darkMode
-                                            ? " group-hover:text-white"
+                                            ? "group-hover:text-white"
                                             : "group-hover:text-mainBgDark"
-                                    } `}
+                                    }`}
                                 >
                                     Created At:{" "}
                                     {singleBlogData.created_at.slice(0, 10)}
@@ -57,17 +58,15 @@ const SingleBlog = ({ singleBlogData }) => {
                         <div
                             className={` ${
                                 darkMode ? "text-white" : "text-mainBgDark"
-                            }  md:text-4xl text-3xl font-semibold `}
+                            } md:text-4xl text-3xl font-semibold `}
                         >
                             {singleBlogData.title}
                         </div>
                         <div>
                             <Image
-                                className="md:max-w-3xl  box-border md:max-h-400 border-radius-btn "
+                                className="md:max-w-3xl box-border md:max-h-400 border-radius-btn"
                                 width={800}
                                 height={100}
-                                // layout="fill"
-                                // objectFit="cover"
                                 priority={true}
                                 alt="IMG"
                                 src={singleBlogData.image}
@@ -75,31 +74,31 @@ const SingleBlog = ({ singleBlogData }) => {
                         </div>
                         <div className="box-border p-3">
                             <h6
-                                className={`${
+                                className={` ${
                                     darkMode
                                         ? "text-darkParagraphColor"
                                         : "text-lightParagraphColor"
-                                }  text-sm md:text-base font-normal`}
+                                } text-sm md:text-base font-normal`}
                             >
                                 {singleBlogData.shortdescription}
                             </h6>
-                            <br></br>
+                            <br />
                             <h6
-                                className={`${
+                                className={` ${
                                     darkMode
                                         ? "text-darkParagraphColor"
                                         : "text-lightParagraphColor"
-                                }  text-sm md:text-base font-normal`}
+                                } text-sm md:text-base font-normal`}
                             >
                                 {singleBlogData.midDescription}
                             </h6>
-                            <br></br>
+                            <br />
                             <h6
-                                className={`${
+                                className={` ${
                                     darkMode
                                         ? "text-darkParagraphColor"
                                         : "text-lightParagraphColor"
-                                }  text-sm md:text-base font-normal`}
+                                } text-sm md:text-base font-normal`}
                             >
                                 {singleBlogData.description}
                             </h6>
@@ -107,7 +106,7 @@ const SingleBlog = ({ singleBlogData }) => {
                     </div>
                 </div>
             </div>
-        </>
+        </HelmetProvider>
     );
 };
 
