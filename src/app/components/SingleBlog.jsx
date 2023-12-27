@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+"use client";
+>>>>>>> parent of 25973a9 (trying to fix meta data)
 import Image from "next/image";
 import React from "react";
 import Ads from "./Ads";
