@@ -45,7 +45,7 @@ const SingleBlogView = () => {
 
     return (
         <>
-            <Head>
+            {/* <Head>
                 <title>{currentPost.title}</title>
                 <meta
                     name="description"
@@ -62,7 +62,7 @@ const SingleBlogView = () => {
                     content={`https://www.americanlensnews.com/blog/${currentPost.id}`}
                 />
                 <meta property="og:type" content="article" />
-            </Head>
+            </Head> */}
             <div>
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
                 <HamburgerMenu darkMode={darkMode} setDarkMode={setDarkMode} />
