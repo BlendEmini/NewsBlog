@@ -1,14 +1,17 @@
-// "use client";
 import Image from "next/image";
-import React, { useContext } from "react";
+import React from "react";
 import Ads from "./Ads";
 import BlogContext from "../context/BlogContext";
 import AdsMid from "./AdsMid";
 import CategoryBtn from "./CategoryBtn";
 import Head from "next/head";
 const SingleBlog = ({ singleBlogData }) => {
-    const { darkMode, setDarkMode } = useContext(BlogContext);
-    console.log(singleBlogData);
+    const darkMode = false;
+    console.log("Received singleBlogData:", singleBlogData);
+
+    if (!singleBlogData || !singleBlogData.title) {
+        return <div>Loading...</div>; // Or handle the loading state appropriately
+    }
     return (
         <>
             <Head>
