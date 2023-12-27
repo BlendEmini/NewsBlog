@@ -1,33 +1,31 @@
 "use client";
-import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
     return (
         <div className="">
             <div className="w-full bg-footerBG text-white box-border p-8 flex flex-wrap justify-center ">
-                <div className="flex gap-4 flex-wrap  md:justify-center">
+                <div className="flex gap-3 flex-wrap justify-center">
                     <div className="w-72 box-border p-4  h-60 flex flex-col align-items-start">
                         <strong>About</strong>
                         <p>
-                            Welcome to AmericanLensNews! We're passionate about
-                            delivering reliable, diverse news across topics that
-                            inform and engage.
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Culpa natus ratione delectus animi itaque
+                            nobis totam.
                         </p>
                         <br></br>
-                        <strong className="">
-                            Email: americanlensnews@gmail.com
-                        </strong>
+                        <strong>Email:</strong>
+                        <strong>Phone:</strong>
                     </div>
                     <div className="box-border p-5 flex  flex-col h-60">
                         <strong>Category</strong>
-                        <Link href={"/"}>Homepage</Link>
-                        <Link href={"/blog/politics"}>Politics</Link>
-                        <Link href={"/blog/business"}>Business</Link>
-                        <Link href={"/blog/health"}>Health</Link>
-                        <Link href={"/blog/sports"}>Sports</Link>
-                        <Link href={"/blog/technology"}>Technology</Link>
-                        <Link href={"/blog/others"}>Others</Link>
+                        <a>Homepage</a>
+                        <a>Politics</a>
+                        <a>Business</a>
+                        <a>Health</a>
+                        <a>Sports</a>
+                        <a>Technology</a>
+                        <a>Others</a>
                     </div>
                     <div className="w-72 flex flex-col gap-3 align-items-center h-60 box-border p-6">
                         <strong>Weekly Newsletter</strong>

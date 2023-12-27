@@ -26,9 +26,6 @@
     border: 0.02px solid #ededed1b;
     border-radius: 8px;
 }
-.relative-img {
-    position: relative !important;
-}
 .border1pxBoxDark {
     border: 0.05px solid #aaa9a9d7;
     border-radius: 6px;
