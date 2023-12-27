@@ -1,37 +1,72 @@
 import Image from "next/image";
-import React, { useContext } from "react";
-import Ads from "./Ads";
-import BlogContext from "../context/BlogContext";
+import React, { useContext, useEffect, useState } from "react";
 import AdsMid from "./AdsMid";
 import CategoryBtn from "./CategoryBtn";
+import { useRouter } from "next/router";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import BlogContext from "../context/BlogContext";
 
 const SingleBlog = ({ singleBlogData }) => {
-    const { darkMode, setDarkMode } = useContext(BlogContext);
-    console.log(singleBlogData);
+    const router = useRouter();
+    const { darkMode } = useContext(BlogContext);
+    const [currentPost, setCurrentPost] = useState(null);
+
+    useEffect(() => {
+        setCurrentPost(singleBlogData);
+    }, [singleBlogData]);
+
+    useEffect(() => {
+        if (currentPost) {
+            setMetaTags();
+        }
+    }, [currentPost]);
+
+    const setMetaTags = () => {
+        Helmet.canUseDOM &&
+            Helmet.renderStatic(() => {
+                return (
+                    <Helmet>
+                        <title>{currentPost.title || "Default Title"}</title>
+                        <meta
+                            name="description"
+                            content={
+                                currentPost.shortdescription ||
+                                "Default Description"
+                            }
+                        />
+                        <meta
+                            property="og:title"
+                            content={currentPost.title || "Default Title"}
+                        />
+                        <meta
+                            property="og:description"
+                            content={
+                                currentPost.shortdescription ||
+                                "Default Description"
+                            }
+                        />
+                        <meta
+                            property="og:image"
+                            content={currentPost.image || "Default Image URL"}
+                        />
+                        <meta
+                            property="og:url"
+                            content={
+                                `https://www.americanlensnews.com/blog/${router.query.id}` ||
+                                "Default URL"
+                            }
+                        />
+                    </Helmet>
+                );
+            });
+    };
+
+    if (!currentPost) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <HelmetProvider>
-            <Helmet>
-                <title>{singleBlogData.title}</title>
-                <meta
-                    name="description"
-                    content={singleBlogData.shortdescription}
-                />
-                <meta property="og:title" content={singleBlogData.title} />
-                <meta
-                    property="og:description"
-                    content={singleBlogData.shortdescription}
-                />
-                <meta property="og:image" content={singleBlogData.image} />
-                <meta
-                    property="og:url"
-                    content={`https://www.americanlensnews.com/blog/${singleBlogData.id}`}
-                />
-                <meta property="og:type" content="article" />
-                {/* Other meta tags */}
-            </Helmet>
-
             <div
                 className={`flex box-border align-items-center ${
                     darkMode ? "bg-mainBgDark" : "bg-white"
