@@ -103,38 +103,6 @@ const SingleBlog = ({ singleBlogData }) => {
                     </div>
                 </div>
             </div>
-            {/* Setting up meta tags using Head */}
-            <Head>
-                <title>{currentPost.title || "Default Title"}</title>
-                <meta
-                    name="description"
-                    content={
-                        currentPost.shortdescription || "Default Description"
-                    }
-                />
-                <meta
-                    property="og:title"
-                    content={currentPost.title || "Default Title"}
-                />
-                <meta
-                    property="og:description"
-                    content={
-                        currentPost.shortdescription || "Default Description"
-                    }
-                />
-                <meta
-                    property="og:image"
-                    content={currentPost.image || "Default Image URL"}
-                />
-                {/* Replace `router.query.id` with the direct ID */}
-                <meta
-                    property="og:url"
-                    content={
-                        `https://www.americanlensnews.com/blog/${singleBlogData.id}` ||
-                        "Default URL"
-                    }
-                />
-            </Head>
         </div>
     );
 };
