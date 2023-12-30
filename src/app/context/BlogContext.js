@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import { supabase } from "../supabase";
 
 const BlogContext = createContext();
@@ -7,7 +7,13 @@ const BlogContext = createContext();
 export function BlogProvider({ children }) {
     const [darkMode, setDarkMode] = useState(false);
     const [currentPost, setCurrentPost] = useState(null);
-
+    const [metadata, setMetadata] = useState({
+        title: "Your Default Title",
+        description: "Your default description goes here.",
+    });
+    const updateMetadata = (newMetadata) => {
+        setMetadata({ ...metadata, ...newMetadata });
+    };
     // Function to fetch a single post by ID
     const fetchPostById = async (postId) => {
         try {
@@ -35,6 +41,8 @@ export function BlogProvider({ children }) {
                 setDarkMode,
                 fetchPostById,
                 currentPost,
+                metadata,
+                updateMetadata,
             }}
         >
             {children}
@@ -43,3 +51,4 @@ export function BlogProvider({ children }) {
 }
 
 export default BlogContext;
+export const useBlogContext = () => useContext(BlogContext);
