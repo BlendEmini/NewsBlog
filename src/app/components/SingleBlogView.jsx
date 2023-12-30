@@ -5,12 +5,8 @@ import Navbar from "./Navbar";
 import HamburgerMenu from "./HamburgerMenu";
 import SingleBlog from "./SingleBlog";
 import Footer from "./Footer";
+import Head from "next/head";
 
-export const metadata = {
-    title: "AmericanLensNews",
-    description:
-        "Welcome to AmericanLensNews! Our commitment is to offer dependable and diverse news coverage.",
-};
 const SingleBlogView = () => {
     const { fetchPostById, currentPost, darkMode, setDarkMode } =
         useContext(BlogContext);
@@ -50,6 +46,10 @@ const SingleBlogView = () => {
 
     return (
         <>
+            <Head>
+                <title>{currentPost.title}</title>
+                <meta name="description" content={currentPost.description} />
+            </Head>
             <div>
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
                 <HamburgerMenu darkMode={darkMode} setDarkMode={setDarkMode} />

@@ -5,6 +5,15 @@ import { BlogProvider } from "@/app/context/BlogContext";
 
 import SingleBlogView from "@/app/components/SingleBlogView";
 
+// import { hydrate, render } from "react-dom";
+
+// const rootElement = document.getElementById("root");
+// if (rootElement.hasChildNodes()) {
+//     hydrate(<App />, rootElement);
+// } else {
+//     render(<App />, rootElement);
+// }
+
 const Page = () => {
     return (
         <BlogProvider>
