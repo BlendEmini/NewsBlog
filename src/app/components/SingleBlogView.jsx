@@ -47,8 +47,17 @@ const SingleBlogView = () => {
     return (
         <>
             <Head>
-                <title>{currentPost.title}</title>
-                <meta name="description" content={currentPost.description} />
+                <meta property="og:type" content="website" />
+                <meta
+                    property="og:url"
+                    content="https://www.americanlensnews.com/blog/4"
+                />
+                <meta property="og:title" content="Header" />
+                <meta property="og:description" content="sadawa" />
+                <meta
+                    property="og:image"
+                    content="https://metatags.io/images/meta-tags.png"
+                />
             </Head>
             <div>
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
