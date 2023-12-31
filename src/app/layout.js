@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
             <BlogProvider>
                 <body className={inter.className}>{children}</body>
             </BlogProvider>
-            <SpeedInsights />
+            {/* <SpeedInsights /> */}
         </html>
     );
 }
