@@ -29,7 +29,7 @@ const SingleBlog = ({ singleBlogData }) => {
             if (descriptionMeta) {
                 descriptionMeta.setAttribute(
                     "content",
-                    currentPost.description
+                    currentPost.shortdescription
                 );
             } else {
                 const newDescriptionMeta = document.createElement("meta");
