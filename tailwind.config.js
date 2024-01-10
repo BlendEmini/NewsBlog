@@ -28,6 +28,9 @@ module.exports = {
                 darkParagraphColor: "#BABABF",
                 btnBackground: "#4b6bfb0d",
                 footerBG: "#141624",
+                tableDf: "#EDF2F7",
+                tableText: "#718096",
+                tableDft: "#4A5568",
             },
             alignItems: {
                 center: "center",
