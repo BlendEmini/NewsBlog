@@ -7,13 +7,7 @@ const BlogContext = createContext();
 export function BlogProvider({ children }) {
     const [darkMode, setDarkMode] = useState(false);
     const [currentPost, setCurrentPost] = useState(null);
-    const [metadata, setMetadata] = useState({
-        title: "Your Default Title",
-        description: "Your default description goes here.",
-    });
-    const updateMetadata = (newMetadata) => {
-        setMetadata({ ...metadata, ...newMetadata });
-    };
+
     // Function to fetch a single post by ID
     const fetchPostById = async (postId) => {
         try {
@@ -41,8 +35,6 @@ export function BlogProvider({ children }) {
                 setDarkMode,
                 fetchPostById,
                 currentPost,
-                metadata,
-                updateMetadata,
             }}
         >
             {children}

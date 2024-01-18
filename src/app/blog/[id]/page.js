@@ -1,17 +1,17 @@
 // src/app/blog/[id]/page.js
-
 import React from "react";
 import { BlogProvider } from "@/app/context/BlogContext";
 import SingleBlogView from "@/app/components/SingleBlogView";
 import Head from "next/head";
+import { supabase } from "@/app/supabase";
 
-// export const metadata = {
-//     title: "AmericanLensNews",
-//     description:
-//         "Welcome to AmericanLensNews! Our commitment is to offer dependable and diverse news coverage.",
-// };
+export const metadata = {
+    title: "...",
+    description: "....",
+};
+const Page = async () => {
+    const { data: post, error } = await supabase.from("news").select("*");
 
-const Page = () => {
     return (
         <>
             <BlogProvider>
@@ -20,5 +20,4 @@ const Page = () => {
         </>
     );
 };
-
 export default Page;

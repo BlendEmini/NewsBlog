@@ -7,11 +7,6 @@ import HamburgerMenu from "./HamburgerMenu";
 import SingleBlog from "./SingleBlog";
 import Footer from "./Footer";
 
-// export const metadata = {
-//     title: "AmericanLensNews",
-//     description:
-//         "Welcome to AmericanLensNews! Our commitment is to offer dependable and diverse news coverage.",
-// };
 const SingleBlogView = () => {
     const { fetchPostById, currentPost, darkMode, setDarkMode } =
         useContext(BlogContext);

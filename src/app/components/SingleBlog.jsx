@@ -13,49 +13,6 @@ const SingleBlog = ({ singleBlogData }) => {
         setCurrentPost(singleBlogData);
     }, [singleBlogData]);
 
-    useEffect(() => {
-        if (currentPost) {
-            setMetaTags();
-        }
-    }, [currentPost]);
-    const setMetaTags = () => {
-        if (typeof window !== "undefined") {
-            document.title = currentPost.title;
-
-            // Setting description meta tag
-            const descriptionMeta = document.querySelector(
-                'meta[name="description"]'
-            );
-            if (descriptionMeta) {
-                descriptionMeta.setAttribute(
-                    "content",
-                    currentPost.shortdescription
-                );
-            } else {
-                const newDescriptionMeta = document.createElement("meta");
-                newDescriptionMeta.setAttribute("name", "description");
-                newDescriptionMeta.setAttribute(
-                    "content",
-                    currentPost.description
-                );
-                document.head.appendChild(newDescriptionMeta);
-            }
-
-            // Setting image meta tag
-            const imageMeta = document.querySelector(
-                'meta[property="og:image"]'
-            );
-            if (imageMeta) {
-                imageMeta.setAttribute("content", currentPost.image);
-            } else {
-                const newImageMeta = document.createElement("meta");
-                newImageMeta.setAttribute("property", "og:image");
-                newImageMeta.setAttribute("content", currentPost.image);
-                document.head.appendChild(newImageMeta);
-            }
-        }
-    };
-
     if (!currentPost) {
         return <div>Loading...</div>;
     }
