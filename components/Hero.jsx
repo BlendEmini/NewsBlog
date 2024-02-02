@@ -65,8 +65,6 @@ const Hero = ({ blogs }) => {
                 </div>
             </div>
             <h3 className="text-center py-5">Scroll Down see latest news ⏬</h3>
-            <AdsWidgetHeader />
-            <h5 className="font-bold mt-6">LATEST NEWS</h5>
         </div>
     );
 };
