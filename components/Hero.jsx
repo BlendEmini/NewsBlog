@@ -4,6 +4,7 @@ import Ads from "../components/Ads";
 import Link from "next/link";
 import logo from "../assets/logolight1.png";
 import { useSelector } from "react-redux";
+import AdsWidgetHeader from "./AdsWidgetHeader";
 
 const Hero = ({ blogs }) => {
     const darkMode = useSelector((state) => state.darkMode);
@@ -63,7 +64,8 @@ const Hero = ({ blogs }) => {
                     </Link>
                 </div>
             </div>
-            <Ads />
+            <h3 className="text-center py-5">Scroll Down see latest news ⏬</h3>
+            <AdsWidgetHeader />
             <h5 className="font-bold mt-6">LATEST NEWS</h5>
         </div>
     );
