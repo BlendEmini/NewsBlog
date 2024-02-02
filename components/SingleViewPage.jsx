@@ -17,7 +17,6 @@ const SingleViewPage = ({ singleBlogData }) => {
                     darkMode ? "bg-mainBgDark" : "bg-gray-100"
                 } flex-col justify-center`}
             >
-                <AdsMid />
                 <div className="box-border py-4">
                     <div className="flex box-border p-3 gap-4 max-w-3xl flex-col justify-center">
                         <div className="flex w-full justify-between">
