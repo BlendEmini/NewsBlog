@@ -17,7 +17,7 @@ const Hero = ({ blogs }) => {
                 darkMode
                     ? "bg-mainBgDark text-white "
                     : "bg-gray-100 text-black shadow-lg "
-            } gap-3`}
+            } gap-3 lg:mb-16 mb-24 `}
         >
             <div className="relative gap-11 box-border py-3">
                 <div className="relative cursor-pointer ">
@@ -64,7 +64,9 @@ const Hero = ({ blogs }) => {
                     </Link>
                 </div>
             </div>
-            <h3 className="text-center py-5">Scroll Down see latest news ⏬</h3>
+            <h3 className="text-center lg:mt-12 txt-mt-z py-5">
+                Scroll Down see latest news ⏬
+            </h3>
         </div>
     );
 };

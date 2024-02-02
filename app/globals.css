@@ -86,6 +86,14 @@
         max-width: 760px;
     }
 }
+
+@media screen and (max-width: 1023px) {
+    .txt-mt-z {
+        z-index: 100;
+        margin-top: 146px;
+    }
+}
+
 @media screen and (max-width: 390px) {
     .hero-res-mid {
         width: 335px;
