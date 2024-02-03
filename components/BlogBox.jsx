@@ -66,7 +66,7 @@ const BlogBox = ({ blog }) => {
                             : "group-hover:text-mainBgDark"
                     } `}
                 >
-                    Created At: {blog.created_at.slice(0, 10)}
+                    {/* Created At: {blog.created_at.slice(0, 10)} */}
                 </h5>
                 <div>
                     <h6

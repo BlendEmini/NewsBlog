@@ -31,7 +31,7 @@ const SingleViewPage = ({ singleBlogData }) => {
                                     }`}
                                 >
                                     Created At:{" "}
-                                    {singleBlogData.created_at.slice(0, 10)}
+                                    {/* {singleBlogData.created_at.slice(0, 10)} */}
                                 </h5>
                             </div>
                         </div>
