@@ -4,6 +4,7 @@ import CategoryBtn from "./CategoryBtn";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import AdsWidgetInArticle from "./AdsWidgetInArticle";
+import AdsWidgetHeader from "./AdsWidgetHeader";
 
 const SingleViewPage = ({ singleBlogData }) => {
     const darkMode = useSelector((state) => state.darkMode);
@@ -65,7 +66,7 @@ const SingleViewPage = ({ singleBlogData }) => {
                             <h3 className="text-center py-5">
                                 Scroll Down to continue reading ⏬
                             </h3>
-                            <AdsWidgetInArticle />
+                            <AdsWidgetHeader />
                             <h6
                                 className={` ${
                                     darkMode
