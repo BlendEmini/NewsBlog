@@ -63,10 +63,10 @@ const SingleViewPage = ({ singleBlogData }) => {
                             >
                                 {singleBlogData.shortdescription}
                             </h6>
-                            <h3 className="text-center py-5">
+                            {/* <h3 className="text-center font-bold py-5">
                                 Scroll Down to continue reading ⏬
-                            </h3>
-                            <AdsWidgetHeader />
+                            </h3> */}
+                            {/* <AdsWidgetHeader /> */}
                             <h6
                                 className={` ${
                                     darkMode
@@ -76,10 +76,7 @@ const SingleViewPage = ({ singleBlogData }) => {
                             >
                                 {singleBlogData.midDescription}
                             </h6>
-                            <h3 className="text-center py-5">
-                                Scroll Down to continue reading ⏬
-                            </h3>
-                            <AdsWidgetInArticle />
+
                             <h6
                                 className={` ${
                                     darkMode
@@ -89,7 +86,7 @@ const SingleViewPage = ({ singleBlogData }) => {
                             >
                                 {singleBlogData.description}
                             </h6>
-                            <br />
+                            <AdsWidgetInArticle />
                         </div>
                     </div>
                 </div>
