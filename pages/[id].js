@@ -11,6 +11,7 @@ import { Provider, useSelector } from "react-redux";
 import configureStore from "@/redux/configureStore";
 import AdsWidgetHeader from "@/components/AdsWidgetHeader";
 import AdsWidgetInArticle from "@/components/AdsWidgetInArticle";
+import AdsUnderArticle from "@/components/AdsUnderArticle";
 
 const Article = ({ post }) => {
     const siteUrl = `https://news-blog-ssr.vercel.app/${post.id}`;
@@ -47,6 +48,7 @@ const Article = ({ post }) => {
                 <HamburgerMenu />
                 <AdsWidgetInArticle />
                 <SingleViewPage singleBlogData={post} />
+                <AdsUnderArticle />
                 <Footer />
             </Provider>
         </>

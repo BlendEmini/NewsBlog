@@ -13,6 +13,7 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import { Cookie } from "next/font/google";
 import AdsWidgetHeader from "@/components/AdsWidgetHeader";
 import AdsWidgetInArticle from "@/components/AdsWidgetInArticle";
+import AdsUnderArticle from "@/components/AdsUnderArticle";
 
 export default function Home({ blogs }) {
     const siteUrl = `https://news-blog-ssr.vercel.app/`;
@@ -46,12 +47,13 @@ export default function Home({ blogs }) {
                 <div className="">
                     <Navbar />
                     <HamburgerMenu />
-                    <AdsWidgetHeader />
-                    <Hero blogs={blogs} />
-                    <AdsWidgetInArticle />
-                    <h5 className="font-bold text-center  mt-6">LATEST NEWS</h5>
-                    <News blogs={blogs} />
 
+                    <AdsWidgetInArticle />
+                    <Hero blogs={blogs} />
+                    <h5 className="font-bold text-center  mt-2">LATEST NEWS</h5>
+                    <AdsWidgetHeader />
+                    <News blogs={blogs} />
+                    <AdsUnderArticle />
                     <Footer />
                 </div>
             </Provider>

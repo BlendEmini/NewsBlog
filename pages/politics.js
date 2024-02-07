@@ -9,13 +9,17 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Provider } from "react-redux";
 import configureStore from "@/redux/configureStore";
+import AdsWidgetInArticle from "@/components/AdsWidgetInArticle";
+import AdsUnderArticle from "@/components/AdsUnderArticle";
 const TechnologyPage = ({ politicsData }) => {
     return (
         <Provider store={configureStore}>
             <div>
                 <Navbar />
                 <HamburgerMenu />
+                <AdsWidgetInArticle />
                 <News blogs={politicsData} />
+                <AdsUnderArticle />
                 <Footer />
             </div>
         </Provider>

@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import { Metadata } from "next";
 import { Provider } from "react-redux";
 import configureStore from "@/redux/configureStore";
+import AdsWidgetInArticle from "@/components/AdsWidgetInArticle";
+import AdsUnderArticle from "@/components/AdsUnderArticle";
 
 const TechnologyPage = ({ technologyData }) => {
     return (
@@ -17,7 +19,9 @@ const TechnologyPage = ({ technologyData }) => {
             <div>
                 <Navbar />
                 <HamburgerMenu />
+                <AdsWidgetInArticle />
                 <News blogs={technologyData} />
+                <AdsUnderArticle />
                 <Footer />
             </div>
         </Provider>
