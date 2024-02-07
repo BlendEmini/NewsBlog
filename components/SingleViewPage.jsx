@@ -15,7 +15,7 @@ const SingleViewPage = ({ singleBlogData }) => {
 
     return (
         <>
-            <div>
+            <div className="flex gap-2">
                 <div
                     className={`flex box-border align-items-center ${
                         darkMode ? "bg-mainBgDark" : "bg-gray-100"
@@ -96,7 +96,7 @@ const SingleViewPage = ({ singleBlogData }) => {
                         </div>
                     </div>
                 </div>
-                <div className="hidden md:block">
+                <div className="hidden md:block max-w-44">
                     <AdsSidebar />
                 </div>
             </div>
