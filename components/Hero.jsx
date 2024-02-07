@@ -33,7 +33,7 @@ const Hero = ({ blogs }) => {
                             />
                         </div>
                         <div
-                            className={`absolute smallD box-border p-5 border1px border-radius gap-3 -bottom-40 w-350 lg:-bottom-10 left-10 flex md:w-478 md:h-243 ${
+                            className={`absolute smallD box-border p-5 border1px border-radius gap-3 -bottom-40 w-350 lg:-bottom-10 left-10 flex md:w-478  ${
                                 darkMode
                                     ? "bg-mainBgDark text-white "
                                     : "bg-gray-100 text-black shadow-lg "

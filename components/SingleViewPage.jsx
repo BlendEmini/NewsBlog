@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import AdsWidgetInArticle from "./AdsWidgetInArticle";
 import AdsWidgetHeader from "./AdsWidgetHeader";
+import AdsSidebar from "./AdsSidebar";
 
 const SingleViewPage = ({ singleBlogData }) => {
     const darkMode = useSelector((state) => state.darkMode);
@@ -43,15 +44,18 @@ const SingleViewPage = ({ singleBlogData }) => {
                         >
                             {singleBlogData.title}
                         </div>
-                        <div>
+                        <div className="flex gap-2">
                             <Image
-                                className="md:max-w-3xl box-border md:max-h-400 border-radius-btn"
+                                className="md:max-w-3xl box-border  border-radius-btn"
                                 width={800}
                                 height={100}
                                 priority={true}
                                 alt="IMG"
                                 src={singleBlogData.image}
                             />
+                            <div className="hidden md:block">
+                                <AdsSidebar />
+                            </div>
                         </div>
                         <div className="box-border p-3">
                             <h6
@@ -63,6 +67,7 @@ const SingleViewPage = ({ singleBlogData }) => {
                             >
                                 {singleBlogData.shortdescription}
                             </h6>
+
                             {/* <h3 className="text-center font-bold py-5">
                                 Scroll Down to continue reading ⏬
                             </h3> */}
