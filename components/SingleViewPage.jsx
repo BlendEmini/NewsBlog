@@ -15,7 +15,7 @@ const SingleViewPage = ({ singleBlogData }) => {
 
     return (
         <>
-            <div className="flex gap-2">
+            <div className="flex justify-center gap-2">
                 <div
                     className={`flex box-border align-items-center ${
                         darkMode ? "bg-mainBgDark" : "bg-gray-100"
