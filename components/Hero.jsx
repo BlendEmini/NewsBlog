@@ -17,7 +17,7 @@ const Hero = ({ blogs }) => {
                 darkMode
                     ? "bg-mainBgDark text-white "
                     : "bg-gray-100 text-black shadow-lg "
-            } gap-3 lg:mb-16 mb-24 `}
+            } gap-3  `}
         >
             <div className="relative gap-11 box-border py-3">
                 <div className="relative cursor-pointer ">
