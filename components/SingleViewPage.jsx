@@ -51,6 +51,7 @@ const SingleViewPage = ({ singleBlogData }) => {
                             >
                                 {singleBlogData.title}
                             </div>
+                            <AdsWidgetInArticle />
                             <div>
                                 <Image
                                     className="md:max-w-3xl box-border  border-radius-btn"
@@ -72,20 +73,10 @@ const SingleViewPage = ({ singleBlogData }) => {
                                     {singleBlogData.shortdescription}
                                 </h6>
 
-                                {/* <h3 className="text-center font-bold py-5">
-                                Scroll Down to continue reading ⏬
-                            </h3> */}
-                                {/* <AdsWidgetHeader /> */}
-                                <h6
-                                    className={` ${
-                                        darkMode
-                                            ? "text-white"
-                                            : "text-lightParagraphColor"
-                                    } text-sm md:text-base font-normal font-family-single`}
-                                >
-                                    {singleBlogData.midDescription}
-                                </h6>
-
+                                <h3 className="text-center font-bold py-5">
+                                    Scroll Down to continue reading ⏬
+                                </h3>
+                                <AdsWidgetHeader />
                                 <h6
                                     className={` ${
                                         darkMode
@@ -95,6 +86,7 @@ const SingleViewPage = ({ singleBlogData }) => {
                                 >
                                     {singleBlogData.description}
                                 </h6>
+
                                 <AdsWidgetInArticle />
                             </div>
                         </div>

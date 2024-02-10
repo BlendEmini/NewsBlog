@@ -9,8 +9,6 @@ import Footer from "@/components/Footer";
 import { NextSeo } from "next-seo";
 import { Provider, useSelector } from "react-redux";
 import configureStore from "@/redux/configureStore";
-import AdsWidgetHeader from "@/components/AdsWidgetHeader";
-import AdsWidgetInArticle from "@/components/AdsWidgetInArticle";
 import AdsUnderArticle from "@/components/AdsUnderArticle";
 
 const Article = ({ post }) => {
@@ -46,7 +44,7 @@ const Article = ({ post }) => {
                 />
                 <Navbar />
                 <HamburgerMenu />
-                <AdsWidgetInArticle />
+
                 <SingleViewPage singleBlogData={post} />
                 <AdsUnderArticle />
                 <Footer />

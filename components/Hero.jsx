@@ -10,7 +10,7 @@ const Hero = ({ blogs }) => {
     const darkMode = useSelector((state) => state.darkMode);
 
     const singleBlog = blogs[0];
-    console.log(singleBlog);
+
     return (
         <div
             className={`flex  flex-col justify-center align-items-center ${

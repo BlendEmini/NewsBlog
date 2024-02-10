@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className="">
             <div className="w-screen footer-ov bg-footerBG text-white box-border p-7 flex flex-wrap justify-start md:justify-center ">
-                <div className="flex gap-3 flex-wrap justify-center">
+                <div className="flex flex-wrap ">
                     <div className="w-72 box-border p-4  h-60 flex flex-col align-items-start">
                         <strong>About</strong>
                         <p>

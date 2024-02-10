@@ -17,17 +17,14 @@
     }
 }
 
-* {
-    font-family: "Montserrat";
-}
 /* * {
     overflow-x: hidden;
 } */
 
-.font-family-single {
-    font-family: "Roboto" !important;
+/* .font-family-single {
+    font-family: "Poppins" !important;
     font-weight: 600 !important;
-}
+} */
 .margin-top-0 {
     margin-top: 0px !important;
 }
