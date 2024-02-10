@@ -62,13 +62,13 @@ const SingleViewPage = ({ singleBlogData }) => {
                                     src={singleBlogData.image}
                                 />
                             </div>
-                            <div className="box-border p-3">
+                            <div className="box-border p-3 flex flex-wrap align-items-center">
                                 <h6
                                     className={` ${
                                         darkMode
                                             ? "text-white"
                                             : "text-lightParagraphColor"
-                                    } text-sm md:text-base font-normal font-family-single`}
+                                    } text-lg font-normal font-family-single`}
                                 >
                                     {singleBlogData.shortdescription}
                                 </h6>
@@ -82,7 +82,7 @@ const SingleViewPage = ({ singleBlogData }) => {
                                         darkMode
                                             ? "text-white"
                                             : "text-lightParagraphColor"
-                                    } text-sm md:text-base font-normal font-family-single`}
+                                    } text-lg font-normal font-family-single`}
                                 >
                                     {singleBlogData.description}
                                 </h6>
