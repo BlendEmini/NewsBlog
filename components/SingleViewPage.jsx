@@ -73,7 +73,7 @@ const SingleViewPage = ({ singleBlogData }) => {
                                     {singleBlogData.shortdescription}
                                 </h6>
 
-                                <h3 className="text-center font-bold py-5">
+                                <h3 className="text-center w-full font-bold py-5">
                                     Scroll Down to continue reading ⏬
                                 </h3>
                                 <AdsWidgetHeader />
@@ -86,7 +86,40 @@ const SingleViewPage = ({ singleBlogData }) => {
                                 >
                                     {singleBlogData.description}
                                 </h6>
-
+                                {singleBlogData.image2nd ||
+                                singleBlogData.image3nd ? (
+                                    <h3 className="text-center w-full font-bold py-5">
+                                        Keep Scrolling for More Images ⏬
+                                    </h3>
+                                ) : null}
+                                <AdsWidgetInArticle />
+                                {singleBlogData.image2nd ? (
+                                    <>
+                                        <div>
+                                            <Image
+                                                className="md:max-w-3xl box-border  border-radius-btn"
+                                                width={800}
+                                                height={100}
+                                                priority={true}
+                                                alt="IMG"
+                                                src={singleBlogData.image2nd}
+                                            />
+                                        </div>
+                                        <AdsWidgetInArticle />
+                                    </>
+                                ) : null}
+                                {singleBlogData.image3nd ? (
+                                    <div>
+                                        <Image
+                                            className="md:max-w-3xl box-border  border-radius-btn"
+                                            width={800}
+                                            height={100}
+                                            priority={true}
+                                            alt="IMG"
+                                            src={singleBlogData.image3nd}
+                                        />
+                                    </div>
+                                ) : null}
                                 <AdsWidgetInArticle />
                             </div>
                         </div>
