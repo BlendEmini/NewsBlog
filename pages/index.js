@@ -67,7 +67,8 @@ export async function getServerSideProps() {
         const { data: blogs, error } = await supabase
             .from("news")
             .select("*")
-            .order("created_at", { ascending: false });
+            .order("created_at", { ascending: false })
+            .range(0, 9);
 
         if (error) {
             throw error;
