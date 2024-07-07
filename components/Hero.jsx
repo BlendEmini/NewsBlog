@@ -9,7 +9,7 @@ import AdsWidgetHeader from "./AdsWidgetHeader";
 const Hero = ({ blogs }) => {
   const darkMode = useSelector((state) => state.darkMode);
   console.log(blogs);
-  const singleBlog = blogs;
+  const singleBlog = blogs[0];
 
   return (
     <div
@@ -51,7 +51,7 @@ const Hero = ({ blogs }) => {
               </div>
               <div className="flex align-items-center justify-between">
                 <h5 className="text-sm w-28 text-gray-400">
-                  {/* Created At: {singleBlog.created_at.slice(0, 10)} */}
+                  Created At: {singleBlog.created_at.slice(0, 10)}
                 </h5>
                 <div className="md:px-4 px-3 py-2 flex justify-center bg-blue-950 rounded-md">
                   <h5 className="text-sm text-white font-bold">Latest News</h5>
